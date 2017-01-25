@@ -1,0 +1,59 @@
+.form-radio {
+  label.radio-label {
+    display: block;
+
+    input.html-radio {
+      filter: alpha(opacity=0);
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .radio {
+      background: #fff;
+      border: $radio-border-width solid $radio-border-color;
+      border-radius: $radio-border-radius;
+      display: inline-block;
+      height: $radio-size;
+      margin-left: 0.5rem;
+      position: relative;
+      text-align: center;
+      transition: $radio-transition;
+      vertical-align: middle;
+      width: $radio-size;
+
+      .radio-dot {
+        background: $primaryColor;
+        border-radius: $radio-border-radius;
+        height: $radio-dot-size;
+        left: $radio-padding;
+        margin-left: -1 * $radio-border-width;
+        margin-top: -1 * $radio-border-width;
+        position: absolute;
+        top: $radio-padding;
+        width: $radio-dot-size;
+      }
+    }
+
+    &:hover .radio {
+      border-color: $radio-hover-border-color;
+    }
+
+    input.html-radio:focus + .radio {
+      border-color: $radio-focus-border-color;
+      box-shadow: $radio-focus-shadow;
+    }
+  }
+
+  label.radio-label.checked {
+    .radio {
+      border-color: $primaryColor;
+    }
+
+    input.html-radio:focus + .radio {
+      border-color: $primaryColor;
+      box-shadow: $radio-focus-shadow;
+    }
+  }
+}

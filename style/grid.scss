@@ -1,0 +1,80 @@
+// Container
+
+.container {
+  @include clearfix();
+  margin: 0 auto;
+}
+
+.column {
+  width: 100%;
+
+  .column-content {
+    min-height: 1px;
+  }
+}
+
+.row {
+  @include clearfix();
+
+  @each $gutterName, $gutterValue in $gutters {
+    &.gutter-#{$gutterName} {
+      margin-left: -1 * $gutterValue;
+      margin-right: -1 * $gutterValue;
+
+      > .column {
+        padding: 0 $gutterValue;
+      }
+
+      &.multi-row > .column {
+        padding-bottom: 2 * $gutterValue;
+      }
+    }
+  }
+
+  &.mode-float > .column {
+    float: right;
+
+    &.pull-left {
+      float: left;
+    }
+
+    &.pull-right {
+      float: right;
+    }
+  }
+
+  &.mode-inline {
+    &.columns-v-align-top > .column {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &.columns-v-align-middle > .column {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &.columns-v-align-bottom > .column {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}
+
+@each $gridBreakpointName, $gridBreakpointWidth in $grid-breakpoints {
+  @media (min-width: $gridBreakpointWidth) {
+    .container {
+      width: map-get($grid-container-widths, $gridBreakpointName);
+    }
+
+    @for $gridColumnSize from 1 through $columns {
+      .column-#{$gridBreakpointName}-#{$gridColumnSize} {
+        width: $gridColumnSize * $column-unit-size;
+      }
+    }
+
+    .column-#{$gridBreakpointName}-0 {
+      display: none;
+    }
+  }
+}

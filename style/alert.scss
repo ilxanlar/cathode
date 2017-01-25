@@ -1,0 +1,32 @@
+.alert {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: $base-radius;
+  box-shadow: $base-shadow;
+  margin-bottom: 1rem;
+  padding: $alert-vertical-padding $alert-horizontal-padding;
+
+  &.alert-has-icon {
+    position: relative;
+    padding-right: $alert-icon-width + $alert-horizontal-padding;
+
+    .alert-icon {
+      background: rgba(0, 0, 0, 0.03);
+      border-left: 1px solid rgba(0, 0, 0, 0.05);
+      bottom: 0;
+      padding: $alert-vertical-padding 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: $alert-icon-width;
+    }
+  }
+
+  @each $colorName, $colorValue in $alert-bgs {
+    &.alert-#{$colorName} {
+      background: map-get($alert-bgs, $colorName);
+      border-color: map-get($alert-border-colors, $colorName);
+      color: map-get($alert-colors, $colorName);
+    }
+  }
+}

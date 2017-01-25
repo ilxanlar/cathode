@@ -1,0 +1,90 @@
+.switch {
+  background-color: #fff;
+  border: $switchBorderWidth solid $switchBorderColor;
+  border-radius: $switchRadius;
+  cursor: pointer;
+  display: inline-block;
+  height: $switchHeight;
+  margin-left: 0.5rem;
+  padding: 2px;
+  position: relative;
+  transition: $switchTransition;
+  vertical-align: middle;
+  width: $switchWidth;
+
+  .switch-trigger {
+    background-color: $switchBorderColor;
+    border-radius: $switchTriggerRadius;
+    height: $switchTriggerSize;
+    right: $switchPadding;
+    position: absolute;
+    top: $switchPadding;
+    transition: $switchTriggerTransition;
+    width: $switchTriggerSize;
+  }
+
+  &.switch-on {
+    background-color: $switchOnColor;
+    border-color: $switchOnColor;
+
+    .switch-trigger {
+      background-color: #fff;
+      right: $switchTriggerSize + $switchPadding;
+    }
+  }
+}
+
+.form-switch {
+  > label {
+    display: block;
+    position: relative;
+
+    input {
+      filter: alpha(opacity=0);
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+    }
+
+    &:hover .switch {
+      border-color: $switchHoverBorderColor;
+
+      .switch-trigger {
+        background-color: $switchHoverBorderColor;
+      }
+
+      &.switch-on {
+        border-color: $switchOnColor;
+
+        .switch-trigger {
+          background-color: #fff;
+        }
+      }
+    }
+
+    input:focus + .switch {
+      border-color: $switchFocusBorderColor;
+      box-shadow: $switchFocusShadow;
+
+      .switch-trigger {
+        background-color: $switchFocusBorderColor;
+      }
+
+      &.switch-on {
+        border-color: $switchOnColor;
+
+        .switch-trigger {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  .switch,
+  .switch-label {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

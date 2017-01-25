@@ -1,0 +1,41 @@
+@keyframes spinner-scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+.spinner {
+  animation: infinite ease-in-out;
+  background-color: #333;
+  border-radius: 100%;
+  display: inline-block;
+
+  @each $spinnerKeyframeName, $spinnerKeyframeValue in $spinner-keyframes {
+    &.spinner-animation-#{$spinnerKeyframeName} {
+      animation-name: $spinnerKeyframeValue;
+    }
+  }
+
+  @each $spinnerDurationName, $spinnerDurationValue in $spinner-durations {
+    &.spinner-speed-#{$spinnerDurationName} {
+      animation-duration: $spinnerDurationValue;
+    }
+  }
+
+  @each $spinnerColorName, $spinnerColorValue in $spinner-colors {
+    &.spinner-color-#{$spinnerColorName} {
+      background: $spinnerColorValue;
+    }
+  }
+
+  @each $spinnerSizeName, $spinnerSizeValue in $spinner-sizes {
+    &.spinner-size-#{$spinnerSizeName} {
+      height: $spinnerSizeValue;
+      width: $spinnerSizeValue;
+    }
+  }
+}

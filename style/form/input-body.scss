@@ -1,0 +1,21 @@
+.input-body {
+  position: relative;
+
+  .error {
+    bottom: 100%;
+    margin-bottom: -0.5rem;
+    position: absolute;
+    right: 1rem;
+
+    &:after {
+      border: 5px solid transparent;
+      border-bottom: none;
+      border-top-color: $dangerColor;
+      bottom: -5px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0.5rem;
+    }
+  }
+}

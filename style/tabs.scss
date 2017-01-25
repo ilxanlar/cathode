@@ -1,0 +1,41 @@
+@keyframes tabAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tabs {
+  .tabs-nav {
+    margin-bottom: 0.5rem;
+
+    .tab-button {
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      display: inline-block;
+      margin-left: 0.75rem;
+      padding: 0.25rem 0;
+      transition: all 0.2s ease-in;
+      vertical-align: middle;
+
+      &.tab-button-active {
+        border-bottom-color: $primaryColor;
+        color: $primaryColor;
+      }
+    }
+  }
+
+  .tabs-body {
+    .tab-content {
+      animation: tabAnimation 0.1s ease-in;
+      //transition: all 0.2s ease-in;
+
+      &.tab-content-hidden {
+        display: none;
+      }
+    }
+  }
+}

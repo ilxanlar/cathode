@@ -1,0 +1,87 @@
+.input-head {
+  display: block;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  label {
+    display: inline-block;
+    font-weight: 700;
+    vertical-align: middle;
+
+    .required {
+      color: $dangerColor;
+    }
+  }
+
+  .popup-help {
+    color: $gray;
+    display: inline-block;
+    height: 20px;
+    padding: 0 0.5rem;
+    position: relative;
+    vertical-align: middle;
+
+    .popup-help-icon {
+      background: transparent;
+      border: none;
+      display: block;
+      padding: 0;
+
+      .cathode-icon {
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+    .popup-help-content {
+      background: #fff;
+      border: 1px solid $light;
+      box-shadow: $base-shadow;
+      display: none;
+      font-size: $font-size-small;
+      left: -100px;
+      padding: 1rem;
+      position: absolute;
+      top: 100%;
+      width: 200px;
+      z-index: 100;
+    }
+
+    &:hover, &:focus {
+      .popup-help-icon {
+        color: $infoColor;
+      }
+
+      .popup-help-content {
+        display: block;
+      }
+    }
+  }
+
+  .error {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    z-index: 1;
+
+    &:after {
+      border: 5px solid transparent;
+      border-bottom: none;
+      border-top-color: $dangerColor;
+      bottom: -5px;
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0.5rem;
+    }
+  }
+}
+
+.field-has-error {
+  .input-head {
+    label {
+      color: darken($dangerColor, 25%);
+    }
+  }
+}

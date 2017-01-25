@@ -1,0 +1,363 @@
+// Main Colors
+$primaryColor: #555555 !default;
+$infoColor: #1caff6 !default;
+$successColor: #35B086 !default;
+$dangerColor: #F27164 !default;
+$warningColor: #FAAB54 !default;
+
+// Black & White
+$black: #111111 !default;
+$veryVeryDark: #333333 !default;
+$veryDark: #555555 !default;
+$dark: #777777 !default;
+$gray: #999999 !default;
+$lightGray: #AAAAAA !default;
+$veryLightGray: #CCCCCC !default;
+$light: #DDDDDD !default;
+$veryLight: #EEEEEE !default;
+$pale: #F5F5F5 !default;
+$veryPale: #F9F9F9 !default;
+$white: #FFFFFF !default;
+
+$textColor: $veryDark !default;
+$textColorLight: $gray !default;
+$bodyBg: $white !default;
+$bodyColor: $textColor !default;
+
+// Root
+$root-font-size: 14px !default;
+
+// Initial Variables
+$font-primary: -apple-system, BlinkMacSystemFont, "IRANSans", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-secondary: -apple-system, BlinkMacSystemFont, "IRANSans", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-weight-light: 200 !default;
+$font-weight-normal: 300 !default;
+$font-weight-semibold: 500 !default;
+$font-weight-bold: 700 !default;
+$font-size-h1: 3rem !default;
+$font-size-h2: 2.5rem !default;
+$font-size-h3: 2rem !default;
+$font-size-h4: 1.5rem !default;
+$font-size-h5: 1.25rem !default;
+$font-size-h6: 1rem !default;
+$font-size-p: 1rem !default;
+$font-size-p-xxs: 0.75rem !default;
+$font-size-p-xs: 0.8125rem !default;
+$font-size-p-sm: 0.875rem !default;
+$font-size-p-md: 1rem !default;
+$font-size-p-lg: 1.125rem !default;
+$font-size-small: 0.875rem !default;
+
+// Base
+$base-font-size: 1rem !default;
+$base-font-weight: $font-weight-normal !default;
+$base-line-height: 2 !default;
+$base-radius: 3px !default;
+$base-shadow-light: 0 0 5px rgba(0, 0, 0, 0.05) !default;
+$base-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !default;
+$base-shadow-strong: 0 0 5px rgba(0, 0, 0, 0.2) !default;
+$base-danger-shadow: 0 0 5px rgba(255, 0, 0, 0.3) !default;
+$base-danger-shadow-strong: 0 0 5px rgba(255, 0, 0, 0.4) !default;
+$base-text-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !default;
+
+// Typo
+
+$fonts: (
+  primary: $font-primary,
+  secondary: $font-secondary
+) !default;
+
+$fontWeights: (
+  light: $font-weight-light,
+  normal: $font-weight-normal,
+  semibold: $font-weight-semibold,
+  bold: $font-weight-bold
+) !default;
+
+$fontStyles: (
+  normal: normal,
+  italic: italic
+) !default;
+
+$fontSizes: (
+  h1: $font-size-h1,
+  h2: $font-size-h2,
+  h3: $font-size-h3,
+  h4: $font-size-h4,
+  h5: $font-size-h5,
+  h6: $font-size-h6,
+  p: $font-size-p,
+  small: $font-size-small
+) !default;
+
+$pFontSizes: (
+  xxs: $font-size-p-xxs,
+  xs: $font-size-p-xs,
+  sm: $font-size-p-sm,
+  md: $font-size-p-md,
+  lg: $font-size-p-lg
+) !default;
+
+$text-colors: (
+  primary: $primaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  danger: $dangerColor,
+  info: $infoColor,
+  black: $veryVeryDark,
+  gray: $gray,
+  white: $white
+) !default;
+
+/*
+ * Layout and Grid
+ */
+
+// Gutter
+$gutter-none: 0 !default;
+$gutter-tiny: 0.125rem !default;
+$gutter-small: 0.3125rem !default;
+$gutter-normal: 0.625rem !default;
+$gutter-large: 1.25rem !default;
+$gutters: (
+  none: $gutter-none,
+  tiny: $gutter-tiny,
+  small: $gutter-small,
+  normal: $gutter-normal,
+  large: $gutter-large
+) !default;
+
+// Screens
+$screen-xs: 100% !default;
+$screen-sm: 540px !default;
+$screen-md: 720px !default;
+$screen-lg: 960px !default;
+$screen-xl: 1140px !default;
+$screen-xs-max: 575px !default;
+$screen-sm-max: 767px !default;
+$screen-md-max: 991px !default;
+$screen-lg-max: 1199px !default;
+$screen-xs-min: 0px !default;
+$screen-sm-min: $screen-xs-max + 1 !default;
+$screen-md-min: $screen-sm-max + 1 !default;
+$screen-lg-min: $screen-md-max + 1 !default;
+$screen-xl-min: $screen-lg-max + 1 !default;
+$grid-container-widths: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl
+) !default;
+$grid-breakpoints: (
+  xs: $screen-xs-min,
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xl: $screen-xl-min
+) !default;
+
+$columns: 24 !default;
+$column-unit-size: (100% / $columns) !default;
+
+/*
+ * Form
+ */
+
+// Text, Select
+$input-font-size: 1rem !default;
+$input-line-height: 1.75 !default;
+$input-radius: $base-radius !default;
+$input-vertical-padding: 0.5rem !default;
+$input-horizontal-padding: 0.75rem !default;
+$input-height: (($input-font-size * $base-line-height) + ($input-vertical-padding * 2)) !default;
+$input-border-color: $light !default;
+$input-hover-border-color: $veryLightGray !default;
+$input-focus-border-color: $lightGray !default;
+$input-error-border-color: darken($dangerColor, 25%) !default;
+$input-shadow: inset $base-shadow !default;
+$input-focus-shadow: inset $base-shadow-strong !default;
+$input-error-shadow: $base-danger-shadow-strong !default;
+$input-disabled-opacity: 0.6 !default;
+$input-transition: border-color 0.1s ease-in !default;
+
+// Button
+$button-font-size: 1rem !default;
+$button-line-height: 1.75 !default;
+$button-small-font-size: 0.875rem !default;
+$button-small-line-height: 1.25 !default;
+$button-tiny-font-size: 0.75rem !default;
+$button-tiny-line-height: 1.25 !default;
+$button-radius: $base-radius !default;
+$button-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !default;
+$button-hover-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !default;
+$button-focus-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !default;
+$button-error-shadow: $base-danger-shadow-strong !default;
+$button-focus-border-color: rgba(0, 0, 0, 0.15) !default;
+$button-vertical-padding: 0.5rem !default;
+$button-horizontal-padding: 1rem !default;
+$button-horizontal-padding-wide: 2rem !default;
+$button-horizontal-padding-block: 0 !default;
+$button-small-vertical-padding: 0.35rem !default;
+$button-small-horizontal-padding: 0.75rem !default;
+$button-small-horizontal-padding-wide: 1rem !default;
+$button-small-horizontal-padding-block: 0 !default;
+$button-tiny-vertical-padding: 0.25rem !default;
+$button-tiny-horizontal-padding: 0.5rem !default;
+$button-tiny-horizontal-padding-wide: 0.75rem !default;
+$button-tiny-horizontal-padding-block: 0 !default;
+$button-disabled-opacity: 0.6 !default;
+$button-transition: background-color 100ms ease-out, box-shadow 150ms ease-out !default;
+$button-bgs: (
+  primary: $primaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  danger: $dangerColor,
+  info: $infoColor,
+  black: $veryVeryDark,
+  gray: $gray,
+  default: $veryLight,
+  white: $white,
+  transparent: transparent
+) !default;
+$button-hover-bgs: (
+  primary: lighten($primaryColor, 3%),
+  success: lighten($successColor, 3%),
+  warning: lighten($warningColor, 3%),
+  danger: lighten($dangerColor, 3%),
+  info: lighten($infoColor, 3%),
+  black: lighten($veryVeryDark, 3%),
+  gray: lighten($gray, 3%),
+  default: lighten($veryLight, 1%),
+  white: $white,
+  transparent: transparent
+) !default;
+$button-colors: (
+  primary: $white,
+  success: $white,
+  warning: $white,
+  danger: $white,
+  info: $white,
+  black: $white,
+  gray: $white,
+  default: $dark,
+  white: $dark,
+  transparent: inherit
+) !default;
+
+// Radio
+$radio-border-radius: 50% !default;
+$radio-border-color: $veryLightGray !default;
+$radio-hover-border-color: $lightGray !default;
+$radio-focus-border-color: $gray !default;
+$radio-shadow: inset $base-shadow !default;
+$radio-focus-shadow: inset $base-shadow-strong !default;
+$radio-error-shadow: inset $base-danger-shadow-strong !default;
+$radio-transition: border-color 100ms linear !default;
+$radio-size: 15px !default;
+$radio-border-width: 1px !default;
+$radio-padding: 4px !default;
+$radio-dot-size: $radio-size - (2 * $radio-padding) !default;
+
+// Checkbox
+$checkboxBorderRadius: 2px !default;
+$checkboxBorderColor: $veryLightGray !default;
+$checkboxHoverBorderColor: $lightGray !default;
+$checkboxFocusBorderColor: $gray !default;
+$checkboxShadow: inset $base-shadow !default;
+$checkboxFocusShadow: inset $base-shadow-strong !default;
+$checkboxErrorShadow: inset $base-danger-shadow-strong !default;
+$checkboxTransition: border-color 100ms linear !default;
+
+// Switch
+$switchOnColor: $primaryColor !default;
+$switchBorderColor: $veryLightGray !default;
+$switchHoverBorderColor: $lightGray !default;
+$switchFocusBorderColor: $gray !default;
+$switchShadow: $base-shadow !default;
+$switchFocusShadow: $base-shadow-strong !default;
+$switchErrorShadow: $base-danger-shadow-strong !default;
+$switchTriggerSize: 14px !default;
+$switchTriggerRadius: $switchTriggerSize / 2 !default;
+$switchBorderWidth: 1px !default;
+$switchPadding: 1px !default;
+$switchHeight: $switchTriggerSize + 2 * ($switchBorderWidth + $switchPadding) !default;
+$switchWidth: (2 * $switchTriggerSize) + 2 * ($switchBorderWidth + $switchPadding) !default;
+$switchRadius: $switchHeight / 2 !default;
+$switchTransition: border-color 100ms ease-out !default;
+$switchTriggerTransition: background-color 200ms ease-out, right 100ms ease-out !default;
+
+// Common
+$loading-opacity: 0.7 !default;
+
+// Alert
+$alert-horizontal-padding: 1.5rem;
+$alert-vertical-padding: 1rem;
+$alert-icon-width: 3rem;
+$alert-bgs: (
+  primary: lighten($primaryColor, 38%),
+  success: lighten($successColor, 36%),
+  warning: lighten($warningColor, 27%),
+  danger: lighten($dangerColor, 26%),
+  info: lighten($infoColor, 36%),
+  black: lighten($black, 38%),
+  default: $veryLight
+) !default;
+$alert-colors: (
+  primary: $primaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  danger: $dangerColor,
+  info: $infoColor,
+  black: $white,
+  default: $dark
+) !default;
+$alert-border-colors: (
+  primary: $primaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  danger: $dangerColor,
+  info: $infoColor,
+  black: $black,
+  default: $gray
+) !default;
+
+// Panel
+$panel-bg: $white !default;
+$panel-border-color: $veryLight !default;
+$panel-shadow: $base-shadow-light !default;
+
+// Spinner
+$spinner-size-xxs: 0.75rem !default;
+$spinner-size-xs: 1rem !default;
+$spinner-size-sm: 1.5rem !default;
+$spinner-size-md: 2rem !default;
+$spinner-size-lg: 2.5rem !default;
+$spinner-sizes: (
+  xxs: $spinner-size-xxs,
+  xs: $spinner-size-xs,
+  sm: $spinner-size-sm,
+  md: $spinner-size-md,
+  lg: $spinner-size-lg
+) !default;
+$spinner-time-slow: 2s;
+$spinner-time-normal: 1s;
+$spinner-time-fast: 0.5s;
+$spinner-durations: (
+  slow: $spinner-time-slow,
+  normal: $spinner-time-normal,
+  fast: $spinner-time-fast
+) !default;
+$spinner-keyframes: (
+  scaleout: spinner-scaleout
+) !default;
+$spinner-colors: (
+  primary: $primaryColor,
+  success: $successColor,
+  warning: $warningColor,
+  danger: $dangerColor,
+  info: $infoColor,
+  black: $veryVeryDark,
+  gray: $gray,
+  white: $white
+) !default;
