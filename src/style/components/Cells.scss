@@ -1,0 +1,53 @@
+.cells-container {
+  > .cell-container {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &.v-align-top > .cell-container {
+    vertical-align: top;
+  }
+
+  &.v-align-middle > .cell-container {
+    vertical-align: middle;
+  }
+
+  &.v-align-bottom > .cell-container {
+    vertical-align: bottom;
+  }
+
+  @each $cathode-gutterName, $cathode-gutterValue in $cathode-cells-gutters {
+    &.gutter-#{$cathode-gutterName} {
+      margin-left: -1 * $cathode-gutterValue;
+      margin-right: -1 * $cathode-gutterValue;
+
+      > .cell-container {
+        padding: 0 $cathode-gutterValue;
+      }
+
+      &.multi-cell > .cell-container {
+        padding-bottom: 2 * $cathode-gutterValue;
+      }
+    }
+  }
+
+  @for $cathode-cellsColumnSize from 1 through $cathode-cells-count {
+    > .cell-#{$cathode-cellsColumnSize} {
+      width: $cathode-cellsColumnSize * $cathode-cells-unit-size;
+    }
+  }
+
+  @each $cathode-cellsBreakpointName, $cathode-cellsBreakpointWidth in $cathode-cells-breakpoints {
+    @media (min-width: $cathode-cellsBreakpointWidth) {
+      @for $cathode-cellsColumnSize from 1 through $cathode-cells-count {
+        > .cell-#{$cathode-cellsBreakpointName}-#{$cathode-cellsColumnSize} {
+          width: $cathode-cellsColumnSize * $cathode-cells-unit-size;
+        }
+      }
+
+      > .cell-#{$cathode-cellsBreakpointName}-0 {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.icon {
+  &:before {
+    font-size: inherit;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    width: auto;
+  }
+}
+
+@each $cathode-sizeName, $cathode-sizeData in $cathode-font-sizes {
+  .icon-size-#{$cathode-sizeName}:before {
+    font-size: $cathode-sizeData;
+  }
+}

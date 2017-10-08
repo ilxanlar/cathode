@@ -1,0 +1,46 @@
+@import "../../../src/variables";
+
+.custom-options-wrapper {
+  .custom-option-wrapper {
+    label {
+      display: block;
+
+      .option-inside {
+        border: 1px solid #eee;
+        border-radius: 3px;
+        overflow: hidden;
+        padding: 10px;
+
+        img {
+          border: 2px solid transparent;
+          border-radius: 50%;
+          display: inline-block;
+          height: 32px;
+          margin-right: 0.5rem;
+          vertical-align: middle;
+          width: 32px;
+        }
+
+        .option-text {
+          display: inline-block;
+          vertical-align: middle;
+
+          code {
+            color: $color-gray;
+            font-size: 12px;
+            line-height: 1;
+          }
+        }
+
+        &.selected {
+          border-color: $color-primary;
+          color: $color-primary;
+
+          img {
+            border-color: $color-light;
+          }
+        }
+      }
+    }
+  }
+}

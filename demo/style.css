@@ -1,0 +1,67 @@
+body {
+  background: #fff !important;
+}
+
+section {
+  padding: 0 0 0 250px;
+}
+
+section:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+header#nav {
+  background: #333;
+  bottom: 0;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  z-index: 999;
+}
+
+header#nav ul li a {
+  display: block;
+  padding: 5px 20px;
+}
+
+table.component-doc tr th,
+table.component-doc tr td {
+  text-align: left;
+  vertical-align: top;
+}
+
+table.component-doc  {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+}
+
+table.component-doc tr th,
+table.component-doc tr td {
+  border: 1px solid #eee;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px 16px;
+}
+
+table.component-doc tr:last-child th,
+table.component-doc tr:last-child td {
+  border-bottom: none;
+}
+
+code {
+  font-size: 0.9em;
+}
+
+#components > div {
+  border-bottom: 1px dashed #ddd;
+  margin: 0 auto 0 0;
+  max-width: 1400px;
+  padding: 50px 50px;
+}

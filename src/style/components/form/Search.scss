@@ -1,0 +1,40 @@
+.form-auto-complete {
+  background: $cathode-form-text-bg-color;
+  border: 1px solid $cathode-form-text-border-color;
+  display: block;
+  transition: $cathode-form-text-transition;
+
+  .form-auto-complete-placeholder {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .form-auto-complete-search {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .show-search .form-auto-complete-placeholder,
+  .show-selected .form-auto-complete-search {
+    display: none;
+  }
+
+  .form-auto-complete-placeholder {
+  }
+
+  .form-text {
+    margin-bottom: 0;
+
+    input {
+      border: none;
+    }
+  }
+
+  @each $cathode-sizeName, $cathode-sizeData in $cathode-button-sizes {
+    &.field-size-#{$cathode-sizeName} .form-auto-complete-placeholder {
+      font-size: map-get($cathode-sizeData, 'fontSize');
+      line-height: map-get($cathode-sizeData, 'lineHeight');
+      padding: map-get($cathode-sizeData, 'paddingV') map-get($cathode-sizeData, 'paddingH');
+    }
+  }
+}

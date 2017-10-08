@@ -1,0 +1,88 @@
+.popover-container {
+  animation: $cathode-animation-fade-in $cathode-base-animation-duration;
+  background-color: $cathode-popover-bg-color;
+  border: 1px solid $cathode-popover-border-color;
+  border-radius: $cathode-popover-radius;
+  box-shadow: $cathode-popover-shadow;
+  color: $cathode-popover-color;
+  font-size: $cathode-popover-font-size;
+  line-height: $cathode-popover-line-height;
+  position: relative;
+
+  &:after {
+    background: $cathode-popover-bg-color;
+    border-bottom: 1px solid $cathode-popover-border-color;
+    border-right: 1px solid $cathode-popover-border-color;
+    content: '';
+    display: block;
+    height: $cathode-popover-arrow-size;
+    position: absolute;
+    transform: rotate(45deg);
+    width: $cathode-popover-arrow-size;
+  }
+
+  &.popover-top {
+    margin-bottom: $cathode-popover-margin;
+
+    &:after {
+      left: 50%;
+      margin-left: $cathode-popover-arrow-margin-side;
+      margin-top: $cathode-popover-arrow-margin-inside;
+      top: 100%;
+      transform: rotate(45deg);
+    }
+  }
+
+  &.popover-right {
+    margin-left: $cathode-popover-margin;
+
+    &:after {
+      margin-right: $cathode-popover-arrow-margin-inside;
+      margin-top: $cathode-popover-arrow-margin-side;
+      right: 100%;
+      top: 50%;
+      transform: rotate(135deg);
+    }
+  }
+
+  &.popover-bottom {
+    margin-top: $cathode-popover-margin;
+
+    &:after {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: $cathode-popover-arrow-margin-inside;
+      margin-left: $cathode-popover-arrow-margin-side;
+      transform: rotate(225deg);
+    }
+  }
+
+  &.popover-left {
+    margin-right: $cathode-popover-margin;
+
+    &:after {
+      left: 100%;
+      margin-left: $cathode-popover-arrow-margin-inside;
+      margin-top: $cathode-popover-arrow-margin-side;
+      top: 50%;
+      transform: rotate(315deg);
+    }
+  }
+
+  @each $cathode-styleName, $cathode-styleData in $cathode-popover-styles {
+    &.style-#{$cathode-styleName} {
+      border-color: map-get($cathode-styleData, 'light-color');
+      color: map-get($cathode-styleData, 'dark-color');
+
+      &:after {
+        border-color: map-get($cathode-styleData, 'light-color');
+      }
+    }
+  }
+
+  @each $cathode-gutterName, $cathode-gutterValue in $cathode-sizes {
+    &.gutter-#{$cathode-gutterName} {
+      padding: $cathode-gutterValue;
+    }
+  }
+}

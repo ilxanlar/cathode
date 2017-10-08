@@ -1,0 +1,85 @@
+.checkbox-container {
+  background-color: $cathode-form-checkbox-bg-color;
+  border-color: $cathode-form-checkbox-color;
+  border-style: solid;
+  display: inline-block;
+  position: relative;
+  transition: $cathode-form-checkbox-transition;
+  vertical-align: middle;
+
+  .checkbox-tick {
+    background-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    border-right-style: solid;
+    border-right-color: transparent;
+    bottom: 25%;
+    content: '';
+    display: block;
+    left: 30%;
+    position: absolute;
+    right: 30%;
+    top: 15%;
+    transform: rotate(40deg);
+    transform-origin: 50% 50%;
+    transition: $cathode-form-checkbox-tick-transition;
+  }
+
+  &.checkbox-on {
+    border-color: $cathode-form-checkbox-primary-color-on;
+
+    .checkbox-tick {
+      border-color: $cathode-form-checkbox-primary-color-on;
+    }
+  }
+}
+
+@each $cathode-sizeName, $cathode-sizeData in $cathode-boolean-field-sizes {
+  .field-size-#{$cathode-sizeName} {
+    .checkbox-container {
+      border-radius: map-get($cathode-sizeData, 'checkboxBorderRadius');
+      border-width: map-get($cathode-sizeData, 'checkboxBorderWidth');
+      height: map-get($cathode-sizeData, 'checkboxSize');
+      width: map-get($cathode-sizeData, 'checkboxSize');
+
+      .checkbox-tick {
+        border-bottom-width: map-get($cathode-sizeData, 'checkboxBorderWidth');
+        border-right-width: map-get($cathode-sizeData, 'checkboxBorderWidth');
+      }
+    }
+
+    .checkbox-on .checkbox-tick {
+      border-width: map-get($cathode-sizeData, 'checkboxBorderWidthChecked');
+    }
+  }
+}
+
+.checkbox-specific-label {
+  &.field-enabled {
+    .checkbox-container:hover,
+    &.field-hovered .checkbox-container,
+    &.field-focused .checkbox-container {
+      box-shadow: $cathode-form-checkbox-shadow-hover;
+
+      &.checkbox-off {
+        border-color: $cathode-form-checkbox-color-hover;
+      }
+
+      &.checkbox-on {
+        border-color: $cathode-form-checkbox-primary-color-on-hover;
+
+        .checkbox-tick {
+          border-color: $cathode-form-checkbox-primary-color-on-hover;
+        }
+      }
+    }
+  }
+
+  &.field-disabled {
+    opacity: 0.5;
+
+    .checkbox-on, .checkbox-on .checkbox-tick {
+      border-color: $cathode-form-checkbox-color;
+    }
+  }
+}

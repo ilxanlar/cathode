@@ -1,0 +1,26 @@
+.card-container {
+  background: $cathode-card-bg;
+  border: 1px solid $cathode-card-border-color;
+  border-radius: $cathode-card-radius;
+  position: relative;
+
+  .card-cover {
+    img {
+      border-radius: $cathode-card-radius $cathode-card-radius 0 0;
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @each $cathode-paddingName, $cathode-paddingValue in $cathode-sizes {
+    &.padding-#{$cathode-paddingName} {
+      .card-content {
+        padding: 2 * $cathode-paddingValue;
+      }
+    }
+  }
+
+  &.card-loading {
+    opacity: $cathode-card-loading-opacity;
+  }
+}

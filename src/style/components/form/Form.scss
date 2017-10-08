@@ -1,0 +1,82 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $cathode-form-box-input-placeholder-color;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: $cathode-form-box-input-placeholder-color;
+  opacity: 1;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: $cathode-form-box-input-placeholder-color;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $cathode-form-box-input-placeholder-color;
+}
+
+.input-placeholder-text { /* For our own fields */
+  color: $cathode-form-box-input-placeholder-color;
+}
+
+.form-container {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  .form-heading {
+    font-size: 2 * $cathode-font-size-md;
+    margin-bottom: 2 * $cathode-space-md;
+  }
+
+  .form-buttons {
+    margin-top: 2 * $cathode-space-md;
+
+    .button {
+      margin-right: $cathode-size-md;
+    }
+  }
+
+  .form-field {
+    margin-bottom: $cathode-form-field-margin-bottom;
+
+    .form-field {
+      margin-bottom: $cathode-form-field-margin-bottom-nested;
+    }
+  }
+
+  &.form-vertical {
+    .form-field {
+      &:after {
+        clear: both;
+        content: '';
+        display: block;
+      }
+
+      .field-head {
+        float: left;
+        margin-bottom: 0;
+        width: 20%;
+      }
+
+      .field-body, .field-foot {
+        float: right;
+        width: 75%;
+      }
+    }
+
+    @each $cathode-sizeName, $cathode-sizeData in $cathode-button-sizes {
+      .field-size-#{$cathode-sizeName}.field-box .field-head {
+        line-height: map-get($cathode-sizeData, 'lineHeight') * 1em;
+        margin-top: map-get($cathode-sizeData, 'paddingV');
+      }
+    }
+
+    .form-buttons {
+      float: right;
+      width: 75%;
+    }
+  }
+}

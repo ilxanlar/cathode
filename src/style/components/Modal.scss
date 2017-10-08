@@ -1,0 +1,48 @@
+@keyframes cathode-modal-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  position: relative;
+  z-index: 9999;
+
+  .modal-overlay {
+    background: $cathode-color-dark;
+    background: rgba(0, 0, 0, 0.7);
+    animation: cathode-modal-animation 0.3s;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9998;
+  }
+
+  .modal-content {
+    margin: 100px auto;
+    position: relative;
+    max-width: 800px;
+    z-index: 9999;
+
+    .modal-close {
+      color: #fff;
+      cursor: pointer;
+      left: 10px;
+      padding: 10px;
+      position: absolute;
+      top: -40px;
+    }
+  }
+}
+
+body {
+  &.has-active-modal {
+    overflow: hidden;
+  }
+}

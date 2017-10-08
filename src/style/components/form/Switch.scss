@@ -1,0 +1,91 @@
+.switch-container {
+  background-color: $cathode-form-switch-bg-color;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: $cathode-form-switch-transition;
+  vertical-align: middle;
+
+  .switch-trigger {
+    background-color: $cathode-form-switch-trigger-bg-color;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    transition: $cathode-form-switch-trigger-transition;
+  }
+
+  &.switch-on {
+    background-color: $cathode-form-switch-primary-bg-color-on;
+
+    .switch-trigger {
+      background-color: $cathode-form-switch-primary-trigger-bg-color-on;
+    }
+  }
+}
+
+@each $cathode-sizeName, $cathode-sizeData in $cathode-boolean-field-sizes {
+  .field-size-#{$cathode-sizeName} {
+    .switch-container {
+      border-radius: map-get($cathode-sizeData, 'switchHeight') / 2;
+      height: map-get($cathode-sizeData, 'switchHeight');
+      width: map-get($cathode-sizeData, 'switchWidth');
+
+      .switch-trigger {
+        border-radius: map-get($cathode-sizeData, 'switchTriggerSize') / 2;
+        height: map-get($cathode-sizeData, 'switchTriggerSize');
+        left: map-get($cathode-sizeData, 'switchPadding');
+        top: map-get($cathode-sizeData, 'switchPadding');
+        width: map-get($cathode-sizeData, 'switchTriggerSize');
+      }
+
+      &.switch-on .switch-trigger {
+        left: map-get($cathode-sizeData, 'switchWidth') - map-get($cathode-sizeData, 'switchTriggerSize') - map-get($cathode-sizeData, 'switchPadding');
+      }
+    }
+  }
+}
+
+.switch-specific-label {
+  display: inline-block;
+  position: relative;
+
+  input {
+    filter: alpha(opacity=0);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
+  .switch-description {
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+}
+
+.switch-container:hover,
+.switch-specific-label:hover .switch-container,
+.switch-specific-input:focus + .switch-container {
+  .switch-trigger {
+    animation: $cathode-animation-form-switch-trigger 0.5s;
+  }
+}
+
+.switch-specific-label:hover .switch-container,
+.switch-specific-input:focus + .switch-container {
+  box-shadow: $cathode-form-switch-shadow-hover;
+
+  &.switch-on .switch-trigger {
+    background-color: $cathode-form-switch-primary-trigger-bg-color-on;
+  }
+}
+
+.switch-container.switch-on:hover,
+.switch-specific-label:hover .switch-container.switch-on {
+  background-color: $cathode-form-switch-primary-bg-color-on-hover;
+}
+
+.switch-specific-input:focus + .switch-container.switch-on {
+  background-color: $cathode-form-switch-primary-bg-color-on-focus;
+}

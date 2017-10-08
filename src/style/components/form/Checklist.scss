@@ -1,0 +1,10 @@
+.checklist-container {
+  &.checklist-inline {
+    .checklist-item {
+      display: inline-block;
+      margin-right: $cathode-form-checklist-item-margin;
+      min-width: 8rem;
+      vertical-align: top;
+    }
+  }
+}

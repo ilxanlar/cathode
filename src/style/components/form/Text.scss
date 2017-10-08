@@ -1,0 +1,49 @@
+.form-text {
+  input, textarea {
+    background: $cathode-form-text-bg-color;
+    border: 1px solid $cathode-form-text-border-color;
+    border-radius: map-get(map-get($cathode-button-sizes, 'md'), 'radius');
+    display: block;
+    font-size: map-get(map-get($cathode-button-sizes, 'md'), 'fontSize');
+    line-height: map-get(map-get($cathode-button-sizes, 'md'), 'lineHeight');
+    padding: map-get(map-get($cathode-button-sizes, 'md'), 'paddingV') map-get(map-get($cathode-button-sizes, 'md'), 'paddingH');
+    transition: $cathode-form-text-transition;
+
+    &:hover {
+      border-color: $cathode-form-text-border-color-hover;
+    }
+
+    &:focus {
+      border-color: $cathode-form-text-border-color-focus;
+      box-shadow: $cathode-form-text-shadow-focus;
+    }
+
+    &[disabled] {
+      &, &:hover, &:focus {
+        border-color: $cathode-form-text-border-color;
+        color: $cathode-form-box-input-placeholder-color;
+      }
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+  }
+
+  @each $cathode-sizeName, $cathode-sizeData in $cathode-button-sizes {
+    &.field-size-#{$cathode-sizeName} {
+      input, textarea {
+        border-radius: map-get($cathode-sizeData, 'radius');
+        font-size: map-get($cathode-sizeData, 'fontSize');
+        line-height: map-get($cathode-sizeData, 'lineHeight');
+        padding: map-get($cathode-sizeData, 'paddingV') map-get($cathode-sizeData, 'paddingH');
+      }
+    }
+  }
+}

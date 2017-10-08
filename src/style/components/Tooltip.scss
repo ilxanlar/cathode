@@ -1,0 +1,75 @@
+.tooltip-container {
+  animation: $cathode-animation-fade-in $cathode-base-animation-duration;
+  background-color: $cathode-tooltip-bg-color;
+  border-radius: $cathode-tooltip-radius;
+  box-shadow: $cathode-base-shadow;
+  color: $cathode-tooltip-color;
+  font-size: $cathode-tooltip-font-size;
+  line-height: $cathode-tooltip-line-height;
+  max-width: $cathode-tooltip-max-width;
+  padding: $cathode-tooltip-padding;
+  position: relative;
+
+  //&:after {
+  //  content: '';
+  //  display: block;
+  //  height: $cathode-tooltip-arrow-size;
+  //  position: absolute;
+  //  transform: rotate(45deg);
+  //  width: $cathode-tooltip-arrow-size;
+  //}
+
+  &.tooltip-top {
+    //margin-bottom: $cathode-tooltip-margin;
+
+    //&:after {
+    //  left: 50%;
+    //  margin-left: -0.5 * $cathode-tooltip-arrow-size;
+    //  margin-top: -0.5 * $cathode-tooltip-arrow-size;
+    //  top: 100%;
+    //}
+  }
+
+  &.tooltip-right {
+    //margin-left: $cathode-tooltip-margin;
+
+    //&:after {
+    //  margin-right: -0.5 * $cathode-tooltip-arrow-size;
+    //  margin-top: -0.5 * $cathode-tooltip-arrow-size;
+    //  right: 100%;
+    //  top: 50%;
+    //}
+  }
+
+  &.tooltip-bottom {
+    //margin-top: $cathode-tooltip-margin;
+
+    //&:after {
+    //  bottom: 100%;
+    //  left: 50%;
+    //  margin-bottom: -0.5 * $cathode-tooltip-arrow-size;
+    //  margin-left: -0.5 * $cathode-tooltip-arrow-size;
+    //}
+  }
+
+  &.tooltip-left {
+    //margin-right: $cathode-tooltip-margin;
+
+    //&:after {
+    //  left: 100%;
+    //  margin-left: -0.5 * $cathode-tooltip-arrow-size;
+    //  margin-top: -0.5 * $cathode-tooltip-arrow-size;
+    //  top: 50%;
+    //}
+  }
+
+  @each $cathode-styleName, $cathode-styleData in $cathode-tooltip-styles {
+    &.style-#{$cathode-styleName} {
+      background-color: map-get($cathode-styleData, 'dark-color');
+
+      &:after {
+        background-color: map-get($cathode-styleData, 'dark-color');
+      }
+    }
+  }
+}

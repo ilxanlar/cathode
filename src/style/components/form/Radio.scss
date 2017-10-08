@@ -1,0 +1,78 @@
+.radio-container {
+  background-color: $cathode-form-radio-bg-color;
+  border-color: $cathode-form-radio-color;
+  border-style: solid;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  transition: $cathode-form-radio-transition;
+  vertical-align: middle;
+
+  .radio-dot {
+    background-color: transparent;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transition: $cathode-form-radio-dot-transition;
+  }
+
+  &.radio-on {
+    border-color: $cathode-form-radio-primary-color-on;
+    border-width: $cathode-form-radio-md-border-width-on;
+
+    .radio-dot {
+      background-color: $cathode-form-radio-primary-color-on;
+    }
+  }
+}
+
+@each $cathode-sizeName, $cathode-sizeData in $cathode-boolean-field-sizes {
+  .field-size-#{$cathode-sizeName} {
+    .radio-container {
+      border-width: map-get($cathode-sizeData, 'radioBorderWidth');
+      height: map-get($cathode-sizeData, 'radioSize');
+      width: map-get($cathode-sizeData, 'radioSize');
+
+      .radio-dot {
+        height: map-get($cathode-sizeData, 'radioDotSize');
+        margin-left: -1 * map-get($cathode-sizeData, 'radioDotSize') / 2;
+        margin-top: -1 * map-get($cathode-sizeData, 'radioDotSize') / 2;
+        width: map-get($cathode-sizeData, 'radioDotSize');
+      }
+    }
+  }
+}
+
+.radio-specific-label {
+  &.field-enabled {
+    .radio-container:hover,
+    &.field-hovered .radio-container,
+    &.field-focused .radio-container {
+      //background-color: $cathode-form-radio-bg-color-hover;
+      box-shadow: $cathode-form-radio-shadow-hover;
+
+      &.radio-off {
+        border-color: $cathode-form-radio-color-hover;
+      }
+
+      &.radio-on {
+        border-color: $cathode-form-radio-primary-color-on-hover;
+
+        .radio-dot {
+          border-color: $cathode-form-radio-primary-color-on-hover;
+        }
+      }
+    }
+  }
+
+  &.field-disabled {
+    opacity: 0.5;
+
+    .radio-on, .radio-dot {
+      border-color: $cathode-form-radio-color;
+    }
+  }
+}

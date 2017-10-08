@@ -1,0 +1,21 @@
+.boolean-field-label {
+  input.boolean-field-input {
+    left: auto;
+    right: 0;
+  }
+
+  .boolean-field-description {
+    margin-left: 0;
+    margin-right: $cathode-boolean-field-description-margin;
+  }
+}
+
+.checklist-container {
+  &.checklist-inline {
+    .checklist-item {
+      margin-left: $cathode-form-checklist-item-margin;
+      margin-right: 0;
+    }
+  }
+}
+

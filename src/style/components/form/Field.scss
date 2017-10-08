@@ -1,0 +1,120 @@
+.form-field {
+  position: relative;
+
+  .field-head {
+    margin-bottom: 5px;
+    position: relative;
+
+    .field-label {
+      display: inline-block;
+      font-weight: $cathode-form-field-label-font-weight;
+      vertical-align: middle;
+
+      .field-required {
+        color: $cathode-form-field-required-color;
+        margin-left: 5px;
+      }
+    }
+
+    .field-tip {
+      cursor: default;
+      display: inline-block;
+      font-size: 0.8em;
+      color: $cathode-color-light-gray;
+      margin-left: 5px;
+      text-align: center;
+      vertical-align: middle;
+      width: 16px;
+    }
+
+    .field-error, .field-warning {
+      animation: $cathode-animation-fade-in 0.3s ease;
+      background: $cathode-color-white;
+      border-radius: 3px;
+      bottom: -10px;
+      font-size: 11px;
+      right: 8px;
+      line-height: 14px;
+      padding: 2px 5px 1px;
+      position: absolute;
+      z-index: 1;
+
+      &:after {
+        border: 3px solid transparent;
+        border-bottom: none;
+        content: '';
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 100%;
+      }
+    }
+
+    .field-error {
+      background-color: $cathode-color-error;
+      color: $cathode-color-white;
+
+      &:after {
+        border-top-color: $cathode-color-error;
+      }
+    }
+
+    .field-warning {
+      background-color: $cathode-color-warning;
+      color: $cathode-color-white;
+
+      &:after {
+        border-top-color: $cathode-color-warning;
+      }
+    }
+
+    .field-warning-icon, .field-error-icon {
+      border-radius: 50%;
+      height: $cathode-form-field-label-icon-size;
+      left: -2 * $cathode-form-field-label-icon-size;
+      margin-top: -0.5 * $cathode-form-field-label-icon-size;
+      position: absolute;
+      top: 50%;
+      width: $cathode-form-field-label-icon-size;
+
+      &:before {
+        animation: animation-circle-fade-out 2s infinite;
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transform: scale(3);
+        width: 100%;
+      }
+    }
+
+    .field-warning-icon, .field-warning-icon:before {
+      background-color: $cathode-color-warning;
+    }
+
+    .field-error-icon, .field-error-icon:before {
+      background-color: $cathode-color-error;
+    }
+  }
+
+  .field-foot {
+    color: #999;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  &.field-has-error {
+    .field-label {
+      color: $cathode-color-error;
+    }
+  }
+
+  @each $cathode-sizeName, $cathode-sizeData in $cathode-button-sizes {
+    &.field-size-#{$cathode-sizeName} {
+      font-size: map-get($cathode-sizeData, 'fontSize');
+      line-height: map-get($cathode-sizeData, 'lineHeight');
+    }
+  }
+}

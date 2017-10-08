@@ -1,0 +1,649 @@
+// Colors //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Whites & Blacks
+$cathode-color-white: #FFFFFF !default;
+$cathode-color-pale-light: #F9F9F9 !default;
+$cathode-color-very-very-light: #F5F5F5 !default;
+$cathode-color-very-light: #EEEEEE !default;
+$cathode-color-light: #dae0e2 !default; //#DDDDDD !default;
+$cathode-color-very-very-light-gray: #CCCCCC !default;
+$cathode-color-very-light-gray: #BBBBBB !default;
+$cathode-color-light-gray: #AAAAAA !default;
+$cathode-color-gray: #999999 !default;
+$cathode-color-dark: #333333 !default;
+// Text
+$cathode-color-text: #003662 !default;
+// Gray
+$cathode-color-gray-light-a: #d5d5d5;
+$cathode-color-gray-light-b: #ececec;
+$cathode-color-gray-light-c: #f6f6f6;
+// Primary
+$cathode-color-primary: #1caff6 !default;
+$cathode-color-primary-light: #effaff !default;
+$cathode-color-button-primary-bg-color: $cathode-color-primary !default;
+$cathode-color-button-primary-bg-color-hovered: #35c8f5 !default;
+$cathode-color-button-primary-bg-color-pressed: #009dcd !default;
+$cathode-color-button-primary-bg-color-disabled: #caf0fc !default;
+$cathode-color-button-primary-text-color: $cathode-color-white !default;
+$cathode-color-button-primary-text-color-ghost: $cathode-color-primary !default;
+// Secondary
+$cathode-color-secondary: #d9f3ff !default;
+$cathode-color-secondary-light: #effaff !default;
+$cathode-color-button-secondary-bg-color: $cathode-color-secondary !default;
+$cathode-color-button-secondary-bg-color-hovered: #e8f8ff !default;
+$cathode-color-button-secondary-bg-color-pressed: #8bdbff !default;
+$cathode-color-button-secondary-bg-color-disabled: #d9f3ff !default;
+$cathode-color-button-secondary-text-color: #1caff6 !default;
+$cathode-color-button-secondary-text-color-ghost: #1caff6 !default;
+// Tertiary
+$cathode-color-tertiary: #e8eaf1 !default;
+$cathode-color-tertiary-light: #f6f8ff !default;
+$cathode-color-button-tertiary-bg-color: $cathode-color-tertiary !default;
+$cathode-color-button-tertiary-bg-color-hovered: #f1f3f9 !default;
+$cathode-color-button-tertiary-bg-color-pressed: #c1c6d6 !default;
+$cathode-color-button-tertiary-bg-color-disabled: #e1e3ea !default;
+$cathode-color-button-tertiary-text-color: #748494 !default;
+$cathode-color-button-tertiary-text-color-ghost: #748494 !default;
+// Info
+$cathode-color-info: #1caff6 !default;
+$cathode-color-info-light: #effaff !default;
+$cathode-color-button-info-bg-color: $cathode-color-info !default;
+$cathode-color-button-info-bg-color-hovered: #35c8f5 !default;
+$cathode-color-button-info-bg-color-pressed: #009dcd !default;
+$cathode-color-button-info-bg-color-disabled: #e1e3ea !default;
+$cathode-color-button-info-text-color: $cathode-color-white !default;
+$cathode-color-button-info-text-color-ghost: $cathode-color-info !default;
+// Success
+$cathode-color-success: #50e3c2 !default;
+$cathode-color-success-light: #ebfffb !default;
+$cathode-color-button-success-bg-color: $cathode-color-success !default;
+$cathode-color-button-success-bg-color-hovered: #69f1d3 !default;
+$cathode-color-button-success-bg-color-pressed: #40bfa2 !default;
+$cathode-color-button-success-bg-color-disabled: #bcf1e5 !default;
+$cathode-color-button-success-text-color: $cathode-color-white !default;
+$cathode-color-button-success-text-color-ghost: $cathode-color-success !default;
+// Error
+$cathode-color-error: #ff5475 !default;
+$cathode-color-error-light: #fff2f5 !default;
+$cathode-color-button-error-bg-color: $cathode-color-error !default;
+$cathode-color-button-error-bg-color-hovered: #ff8ba1 !default;
+$cathode-color-button-error-bg-color-pressed: #df3f5e !default;
+$cathode-color-button-error-bg-color-disabled: #ffd0d9 !default;
+$cathode-color-button-error-text-color: $cathode-color-white !default;
+$cathode-color-button-error-text-color-ghost: $cathode-color-error !default;
+// Warning
+$cathode-color-warning: #ffd600 !default;
+$cathode-color-warning-light: #fffced !default;
+$cathode-color-button-warning-bg-color: $cathode-color-warning !default;
+$cathode-color-button-warning-bg-color-hovered: #ffe662 !default;
+$cathode-color-button-warning-bg-color-pressed: #e7c200 !default;
+$cathode-color-button-warning-bg-color-disabled: #feed93 !default;
+$cathode-color-button-warning-text-color: $cathode-color-white !default;
+$cathode-color-button-warning-text-color-ghost: $cathode-color-warning !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-root-font-size: 14px !default;
+$cathode-font-size: $cathode-root-font-size !default;
+$cathode-line-height: 1.714285714 !default;
+$cathode-font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$cathode-font-secondary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$cathode-base-radius: 3px !default;
+$cathode-base-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !default;
+$cathode-base-animation-duration: 0.1s !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Animations //////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-animation-dropdown-v: animation-dropdown-v !default;
+$cathode-animation-dropdown-h: animation-dropdown-h !default;
+$cathode-animation-form-switch-trigger: animation-form-switch-trigger !default;
+$cathode-animation-fade-in: animation-fade-in !default;
+$cathode-animation-circle-fade-out: animation-circle-fade-out !default;
+$cathode-animation-message: animation-message !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Sizes ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-size-none: 0;
+$cathode-size-xxs: 2px !default;
+$cathode-size-xs: 4px !default;
+$cathode-size-sm: 8px !default;
+$cathode-size-md: 16px !default;
+$cathode-size-lg: 24px !default;
+$cathode-size-xl: 32px !default;
+$cathode-size-xxl: 40px !default;
+$cathode-sizes: (
+  xxs: $cathode-size-xxs,
+  xs: $cathode-size-xs,
+  sm: $cathode-size-sm,
+  md: $cathode-size-md,
+  lg: $cathode-size-lg,
+  xl: $cathode-size-xl,
+  xxl: $cathode-size-xxl
+) !default;
+
+$cathode-space-xxs: 2px !default;
+$cathode-space-xs: 4px !default;
+$cathode-space-sm: 8px !default;
+$cathode-space-md: 16px !default;
+$cathode-space-lg: 24px !default;
+$cathode-space-xl: 32px !default;
+$cathode-space-xxl: 40px !default;
+
+$cathode-font-size-xxs: 11px !default;
+$cathode-font-size-xs: 12px !default;
+$cathode-font-size-sm: 13px !default;
+$cathode-font-size-md: 14px !default;
+$cathode-font-size-lg: 16px !default;
+$cathode-font-size-xl: 18px !default;
+$cathode-font-size-xxl: 24px !default;
+$cathode-font-sizes: (
+  xxs: $cathode-font-size-xxs,
+  xs: $cathode-font-size-xs,
+  sm: $cathode-font-size-sm,
+  md: $cathode-font-size-md,
+  lg: $cathode-font-size-lg,
+  xl: $cathode-font-size-xl,
+  xxl: $cathode-font-size-xxl
+) !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Screens /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-screen-xs: 100% !default;
+$cathode-screen-sm: 540px !default;
+$cathode-screen-md: 720px !default;
+$cathode-screen-lg: 960px !default;
+$cathode-screen-xl: 1140px !default;
+
+$cathode-screen-xs-max: 575px !default;
+$cathode-screen-sm-max: 767px !default;
+$cathode-screen-md-max: 991px !default;
+$cathode-screen-lg-max: 1199px !default;
+
+$cathode-screen-xs-min: 0px !default;
+$cathode-screen-sm-min: $cathode-screen-xs-max + 1 !default;
+$cathode-screen-md-min: $cathode-screen-sm-max + 1 !default;
+$cathode-screen-lg-min: $cathode-screen-md-max + 1 !default;
+$cathode-screen-xl-min: $cathode-screen-lg-max + 1 !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Style ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-styles: (
+  primary: $cathode-color-primary,
+  secondary: $cathode-color-secondary,
+  info: $cathode-color-info,
+  success: $cathode-color-success,
+  error: $cathode-color-error,
+  warning: $cathode-color-warning,
+  dark: $cathode-color-dark,
+  light: $cathode-color-white
+) !default;
+
+$cathode-styles-negative: (
+  primary: $cathode-color-white,
+  secondary: $cathode-color-white,
+  info: $cathode-color-white,
+  success: $cathode-color-white,
+  error: $cathode-color-white,
+  warning: $cathode-color-white,
+  dark: $cathode-color-white,
+  light: $cathode-color-dark
+) !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Cells ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-cells-gutters: (
+  none: 0,
+  xxs: $cathode-size-xxs,
+  xs: $cathode-size-xs,
+  sm: $cathode-size-sm,
+  md: $cathode-size-md,
+  lg: $cathode-size-lg,
+  xl: $cathode-size-xl,
+  xxl: $cathode-size-xxl
+) !default;
+
+$cathode-cells-widths: (
+  xs: $cathode-screen-xs,
+  sm: $cathode-screen-sm,
+  md: $cathode-screen-md,
+  lg: $cathode-screen-lg,
+  xl: $cathode-screen-xl
+) !default;
+
+$cathode-cells-breakpoints: (
+  xs: $cathode-screen-xs-min,
+  sm: $cathode-screen-sm-min,
+  md: $cathode-screen-md-min,
+  lg: $cathode-screen-lg-min,
+  xl: $cathode-screen-xl-min
+) !default;
+
+$cathode-cells-count: 24 !default;
+$cathode-cells-unit-size: (100% / $cathode-cells-count) !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Button //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-button-sizes: (
+  xxs: (
+    radius: 3px,
+    fontSize: $cathode-font-size-xxs,
+    lineHeight: 1.5,
+    paddingH: 4px,
+    paddingV: 2px
+  ),
+  xs: (
+    radius: 3px,
+    fontSize: $cathode-font-size-xs,
+    lineHeight: 1.5,
+    paddingH: 8px,
+    paddingV: 4px
+  ),
+  sm: (
+    radius: 3px,
+    fontSize: $cathode-font-size-sm,
+    lineHeight: 1.5,
+    paddingH: 12px,
+    paddingV: 6px
+  ),
+  md: (
+    radius: 3px,
+    fontSize: $cathode-font-size-md,
+    lineHeight: 1.5,
+    paddingH: 16px,
+    paddingV: 8px
+  ),
+  lg: (
+    radius: 3px,
+    fontSize: $cathode-font-size-lg,
+    lineHeight: 1.5,
+    paddingH: 16px,
+    paddingV: 8px
+  ),
+  xl: (
+    radius: 5px,
+    fontSize: $cathode-font-size-xl,
+    lineHeight: 1.5,
+    paddingH: 20px,
+    paddingV: 10px
+  ),
+  xxl: (
+    radius: 5px,
+    fontSize: $cathode-font-size-xxl,
+    lineHeight: 1.5,
+    paddingH: 24px,
+    paddingV: 12px
+  )
+) !default;
+$cathode-button-styles: (
+  glass: (
+    bgColor: transparent,
+    textColor: inherit,
+    textColorGhost: inherit,
+    hoveredBgColor: transparent,
+    pressedBgColor: transparent,
+    disabledBgColor: inherit
+  ),
+  primary: (
+    bgColor: $cathode-color-button-primary-bg-color,
+    textColor: $cathode-color-button-primary-text-color,
+    textColorGhost: $cathode-color-button-primary-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-primary-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-primary-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-primary-bg-color-disabled
+  ),
+  secondary: (
+    bgColor: $cathode-color-button-secondary-bg-color,
+    textColor: $cathode-color-button-secondary-text-color,
+    textColorGhost: $cathode-color-button-secondary-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-secondary-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-secondary-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-secondary-bg-color-disabled
+  ),
+  tertiary: (
+    bgColor: $cathode-color-button-tertiary-bg-color,
+    textColor: $cathode-color-button-tertiary-text-color,
+    textColorGhost: $cathode-color-button-tertiary-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-tertiary-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-tertiary-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-tertiary-bg-color-disabled
+  ),
+  info: (
+    bgColor: $cathode-color-button-info-bg-color,
+    textColor: $cathode-color-button-info-text-color,
+    textColorGhost: $cathode-color-button-info-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-info-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-info-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-info-bg-color-disabled
+  ),
+  success: (
+    bgColor: $cathode-color-button-success-bg-color,
+    textColor: $cathode-color-button-success-text-color,
+    textColorGhost: $cathode-color-button-success-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-success-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-success-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-success-bg-color-disabled
+  ),
+  error: (
+    bgColor: $cathode-color-button-error-bg-color,
+    textColor: $cathode-color-button-error-text-color,
+    textColorGhost: $cathode-color-button-error-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-error-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-error-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-error-bg-color-disabled
+  ),
+  warning: (
+    bgColor: $cathode-color-button-warning-bg-color,
+    textColor: $cathode-color-button-warning-text-color,
+    textColorGhost: $cathode-color-button-warning-text-color-ghost,
+    hoveredBgColor: $cathode-color-button-warning-bg-color-hovered,
+    pressedBgColor: $cathode-color-button-warning-bg-color-pressed,
+    disabledBgColor: $cathode-color-button-warning-bg-color-disabled
+  )
+) !default;
+$cathode-button-transition: all $cathode-base-animation-duration ease !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Field //////////////////////////////////////////////////////////////////////////////////////////////////////////
+//$cathode-form-field-head-line-height: 1.8 !default;
+$cathode-form-field-margin-bottom: $cathode-size-md !default;
+$cathode-form-field-margin-bottom-nested: 0 !default;
+$cathode-form-field-label-icon-size: 9px !default;
+$cathode-form-field-label-font-weight: 700 !default;
+$cathode-form-field-label-icon-gutter: 5px !default;
+$cathode-form-field-label-icon-radius: 3px !default;
+$cathode-form-field-required-color: $cathode-color-error !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form BoxInputs //////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-form-box-input-bg-color: #ffffff !default;
+$cathode-form-box-input-border-color: $cathode-color-gray-light-a !default;
+$cathode-form-box-input-border-color-hover: #add7e5 !default;
+$cathode-form-box-input-border-color-focus: $cathode-color-primary !default;
+$cathode-form-box-input-placeholder-color: $cathode-color-very-light-gray !default;
+$cathode-form-box-input-shadow-focus: none !default;
+$cathode-form-box-input-transition: background-color $cathode-base-animation-duration ease-in, border-color $cathode-base-animation-duration ease-in, box-shadow $cathode-base-animation-duration ease-in, color $cathode-base-animation-duration ease-in !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Text ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-form-text-bg-color: $cathode-form-box-input-bg-color !default;
+$cathode-form-text-border-color: $cathode-form-box-input-border-color !default;
+$cathode-form-text-border-color-hover: $cathode-form-box-input-border-color-hover !default;
+$cathode-form-text-border-color-focus: $cathode-form-box-input-border-color-focus !default;
+$cathode-form-text-shadow-focus: $cathode-form-box-input-shadow-focus !default;
+$cathode-form-text-transition: $cathode-form-box-input-transition !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Dropdown ///////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Switch /////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-form-switch-bg-color: $cathode-color-very-light-gray !default;
+$cathode-form-switch-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1) !default;
+$cathode-form-switch-shadow-hover: inset 0 0 5px rgba(0, 0, 0, 0.15) !default;
+$cathode-form-switch-shadow-focus: $cathode-form-switch-shadow-hover !default;
+$cathode-form-switch-transition: background-color $cathode-base-animation-duration ease-out, border-color $cathode-base-animation-duration ease-out, box-shadow $cathode-base-animation-duration ease-out !default;
+$cathode-form-switch-trigger-bg-color: $cathode-color-white !default;
+$cathode-form-switch-trigger-bg-color-hover: $cathode-color-very-very-light-gray !default;
+$cathode-form-switch-trigger-transition: background-color $cathode-base-animation-duration ease-out, left $cathode-base-animation-duration ease-out !default;
+
+$cathode-form-switch-primary-bg-color-on: $cathode-color-primary !default;
+$cathode-form-switch-primary-bg-color-on-hover: lighten($cathode-form-switch-primary-bg-color-on, 7%) !default;
+$cathode-form-switch-primary-bg-color-on-focus: darken($cathode-form-switch-primary-bg-color-on, 7%) !default;
+$cathode-form-switch-primary-trigger-bg-color-on: $cathode-color-white !default;
+
+$cathode-form-switch-secondary-bg-color-on: $cathode-color-secondary !default;
+$cathode-form-switch-secondary-trigger-bg-color-on: $cathode-color-white !default;
+$cathode-form-switch-secondary-bg-color-on-hover: lighten($cathode-form-switch-secondary-bg-color-on, 7%) !default;
+$cathode-form-switch-secondary-bg-color-on-focus: darken($cathode-form-switch-secondary-bg-color-on, 7%) !default;
+
+$cathode-form-switch-md-padding: 0.142857143rem !default;
+$cathode-form-switch-md-trigger-size: 1rem !default;
+$cathode-form-switch-md-trigger-radius: $cathode-form-switch-md-trigger-size / 2 !default;
+$cathode-form-switch-md-height: $cathode-form-switch-md-trigger-size + (2 * $cathode-form-switch-md-padding) !default;
+$cathode-form-switch-md-radius: $cathode-form-switch-md-height / 2 !default;
+$cathode-form-switch-md-width: 2.7 * $cathode-form-switch-md-trigger-size + (2 * $cathode-form-switch-md-padding) !default;
+
+$cathode-boolean-field-sizes: (
+  xxs: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 10px,
+    radioSize: 10px,
+    radioDotSize: 4px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 8px,
+    switchHeight: 10px,
+    switchWidth: 22px
+  ),
+  xs: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 12px,
+    radioSize: 12px,
+    radioDotSize: 4px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 10px,
+    switchHeight: 12px,
+    switchWidth: 27px
+  ),
+  sm: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 14px,
+    radioSize: 14px,
+    radioDotSize: 6px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 12px,
+    switchHeight: 14px,
+    switchWidth: 32px
+  ),
+  md: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 16px,
+    radioSize: 16px,
+    radioDotSize: 6px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 14px,
+    switchHeight: 16px,
+    switchWidth: 37px
+  ),
+  lg: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 18px,
+    radioSize: 18px,
+    radioDotSize: 6px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 16px,
+    switchHeight: 18px,
+    switchWidth: 42px
+  ),
+  xl: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 20px,
+    radioSize: 20px,
+    radioDotSize: 8px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 18px,
+    switchHeight: 20px,
+    switchWidth: 47px
+  ),
+  xxl: (
+    checkboxBorderRadius: 3px,
+    checkboxBorderWidth: 1px,
+    checkboxBorderWidthChecked: 2px,
+    checkboxSize: 22px,
+    radioSize: 22px,
+    radioDotSize: 8px,
+    radioBorderWidth: 1px,
+    switchPadding: 1px,
+    switchTriggerSize: 20px,
+    switchHeight: 22px,
+    switchWidth: 52px
+  )
+) !default;
+$cathode-boolean-field-description-margin: 8px;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Radio //////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-form-radio-bg-color: $cathode-color-white !default;
+$cathode-form-radio-bg-color-hover: $cathode-color-very-very-light !default;
+$cathode-form-radio-shadow-hover: inset 0 0 0.5rem rgba(0, 0, 0, 0.1) !default;
+$cathode-form-radio-color: $cathode-color-very-light-gray !default;
+$cathode-form-radio-color-hover: $cathode-color-light-gray !default;
+$cathode-form-radio-transition: background-color $cathode-base-animation-duration ease-out, border-color $cathode-base-animation-duration ease-out, box-shadow $cathode-base-animation-duration ease-out !default;
+$cathode-form-radio-dot-transition: background-color $cathode-base-animation-duration ease-out !default;
+$cathode-form-radio-primary-color-on: $cathode-color-primary !default;
+$cathode-form-radio-primary-color-on-hover: lighten($cathode-form-radio-primary-color-on, 7%) !default;
+$cathode-form-radio-md-border-width: 1px !default;
+$cathode-form-radio-md-border-width-on: 1px !default;
+$cathode-form-radio-md-dot-size: 6px !default;
+$cathode-form-radio-md-size: $cathode-size-md !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Form Checkbox ///////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-form-checkbox-bg-color: $cathode-form-radio-bg-color !default;
+$cathode-form-checkbox-bg-color-hover: $cathode-form-radio-bg-color-hover !default;
+$cathode-form-checkbox-shadow-hover: $cathode-form-radio-shadow-hover !default;
+$cathode-form-checkbox-color: $cathode-form-radio-color !default;
+$cathode-form-checkbox-color-hover: $cathode-form-radio-color-hover !default;
+$cathode-form-checkbox-transition: $cathode-form-radio-transition !default;
+$cathode-form-checkbox-tick-transition: $cathode-form-radio-dot-transition !default;
+$cathode-form-checkbox-primary-color-on: $cathode-form-radio-primary-color-on !default;
+$cathode-form-checkbox-primary-color-on-hover: $cathode-form-radio-primary-color-on-hover !default;
+$cathode-form-checkbox-md-border-width: $cathode-form-radio-md-border-width !default;
+$cathode-form-checkbox-md-border-width-on: $cathode-form-radio-md-border-width-on !default;
+$cathode-form-checkbox-md-tick-height: 16px !default;
+$cathode-form-checkbox-md-tick-width: $cathode-form-radio-md-dot-size !default;
+$cathode-form-checkbox-md-size: $cathode-form-radio-md-size !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$cathode-form-checklist-item-margin: 16px;
+
+// Box /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-box-light-styles: (
+  info: (
+    light-color: $cathode-color-info-light,
+    dark-color: $cathode-color-info
+  ),
+  success: (
+    light-color: $cathode-color-success-light,
+    dark-color: $cathode-color-success
+  ),
+  error: (
+    light-color: $cathode-color-error-light,
+    dark-color: $cathode-color-error
+  ),
+  warning: (
+    light-color: $cathode-color-warning-light,
+    dark-color: $cathode-color-warning
+  )
+) !default;
+$cathode-box-dark-styles: (
+  info: (dark-color: $cathode-color-info),
+  success: (dark-color: $cathode-color-success),
+  error: (dark-color: $cathode-color-error),
+  warning: (dark-color: $cathode-color-warning)
+) !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Tooltip /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-tooltip-styles: $cathode-box-dark-styles !default;
+$cathode-tooltip-bg-color: $cathode-color-dark !default;
+$cathode-tooltip-color: $cathode-color-white !default;
+$cathode-tooltip-border-color: $cathode-color-light !default;
+$cathode-tooltip-arrow-size: 6px !default;
+$cathode-tooltip-font-size: 12px !default;
+$cathode-tooltip-line-height: 1.4 !default;
+$cathode-tooltip-margin: 10px !default;
+$cathode-tooltip-max-width: 15rem !default;
+$cathode-tooltip-padding: 0.5rem !default;
+$cathode-tooltip-radius: $cathode-base-radius !default;
+$cathode-tooltip-shadow: $cathode-base-shadow !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Popover /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-popover-styles: $cathode-box-light-styles !default;
+$cathode-popover-bg-color: $cathode-color-white !default;
+$cathode-popover-color: $cathode-color-dark !default;
+$cathode-popover-border-color: $cathode-color-light !default;
+$cathode-popover-arrow-size: 6px !default;
+$cathode-popover-arrow-margin-inside: -2px !default;
+$cathode-popover-arrow-margin-side: -3px !default;
+$cathode-popover-font-size: 12px !default;
+$cathode-popover-line-height: 1.4 !default;
+$cathode-popover-margin: 10px !default;
+$cathode-popover-max-width: 15rem !default;
+$cathode-popover-padding: 1rem !default;
+$cathode-popover-radius: $cathode-base-radius !default;
+$cathode-popover-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Alert ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-alert-styles: (
+  info: (
+    light-color: $cathode-color-info-light,
+    dark-color: $cathode-color-info
+  ),
+  success: (
+    light-color: $cathode-color-success-light,
+    dark-color: $cathode-color-success
+  ),
+  error: (
+    light-color: $cathode-color-error-light,
+    dark-color: $cathode-color-error
+  ),
+  warning: (
+    light-color: $cathode-color-warning-light,
+    dark-color: $cathode-color-warning
+  )
+) !default;
+$cathode-alert-border: 1px solid $cathode-color-gray-light-b !default;
+$cathode-alert-font-size: $cathode-font-size !default;
+$cathode-alert-line-height: $cathode-line-height !default;
+$cathode-alert-icon-size: $cathode-alert-line-height * $cathode-alert-font-size !default;
+$cathode-alert-icon-padding: 0.12 * $cathode-alert-icon-size !default;
+$cathode-alert-padding: 20px !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Message /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-message-font-size: 12px !default;
+$cathode-message-line-height: 1.2 !default;
+$cathode-message-icon-size: $cathode-message-line-height * $cathode-message-font-size !default;
+$cathode-message-icon-padding: 0.12 * $cathode-message-icon-size !default;
+$cathode-message-padding: 10px !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Card ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-card-bg: $cathode-color-white !default;
+$cathode-card-radius: $cathode-base-radius !default;
+$cathode-card-border-color: $cathode-color-very-light !default;
+$cathode-card-loading-opacity: 0.5 !default;
+$cathode-card-margin-bottom: 2rem !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Menu ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cathode-dropdown-bg-color: #FFFFFF !default;
+$cathode-dropdown-border-color: $cathode-color-gray-light-b !default;
+$cathode-dropdown-shadow: 0 0 27px 0 rgba(0, 0, 0, 0.06) !default;
+$cathode-dropdown-item-bg-color-hover: #F5F5F5 !default;
+$cathode-dropdown-item-bg-color-active: $cathode-color-button-secondary-bg-color !default;
+$cathode-dropdown-item-text-color-active: $cathode-color-button-secondary-text-color !default;
+$cathode-dropdown-item-padding-v: 8px !default;
+$cathode-dropdown-item-padding-h: 16px !default;
+$cathode-dropdown-item-transition: background-color $cathode-base-animation-duration ease, color $cathode-base-animation-duration ease !default;
+$cathode-dropdown-separator-bg-color: #F5F5F5 !default;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

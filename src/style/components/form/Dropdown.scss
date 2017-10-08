@@ -1,0 +1,33 @@
+.button-select-button {
+  background: $cathode-form-text-bg-color;
+  border: 1px solid $cathode-form-text-border-color;
+  position: relative;
+  text-align: left;
+
+  &:hover {
+    border-color: $cathode-form-text-border-color-hover;
+  }
+
+  &:focus {
+    border-color: $cathode-form-text-border-color-focus;
+    box-shadow: $cathode-form-text-shadow-focus;
+  }
+
+  &[disabled] {
+    &, &:hover, &:focus {
+      border-color: $cathode-form-text-border-color;
+      color: $cathode-form-box-input-placeholder-color;
+    }
+  }
+
+  .icon {
+    color: $cathode-form-box-input-placeholder-color;
+    display: block;
+    float: right;
+    transition: transform $cathode-base-animation-duration ease;
+  }
+
+  &.dropdown-open .icon {
+    transform: rotate(180deg);
+  }
+}

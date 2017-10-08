@@ -1,0 +1,97 @@
+.button {
+  border: 1px solid transparent;
+  border-radius: map-get(map-get($cathode-button-sizes, 'md'), 'radius');
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  transition: $cathode-button-transition;
+
+  @each $cathode-styleName, $cathode-styleData in $cathode-button-styles {
+    &.button-#{$cathode-styleName} {
+      background-color: map-get($cathode-styleData, 'bgColor');
+      color: map-get($cathode-styleData, 'textColor');
+
+      &.button-ghost {
+        background: transparent;
+        border-color: map-get($cathode-styleData, 'bgColor');
+        color: map-get($cathode-styleData, 'textColorGhost');
+
+        &:hover, &:focus {
+          border-color: transparent;
+        }
+
+        &:active {
+          border-color: transparent;
+        }
+      }
+
+      &:hover, &:focus {
+        background-color: map-get($cathode-styleData, 'hoveredBgColor');
+        color: map-get($cathode-styleData, 'textColor');
+      }
+
+      &:active {
+        background-color: map-get($cathode-styleData, 'pressedBgColor');
+        color: map-get($cathode-styleData, 'textColor');
+      }
+
+      &[disabled] {
+        background-color: map-get($cathode-styleData, 'disabledBgColor');
+        border-color: transparent !important;
+        color: $cathode-color-white !important;
+      }
+    }
+  }
+
+  @each $cathode-sizeName, $cathode-sizeData in $cathode-button-sizes {
+    &.button-#{$cathode-sizeName} {
+      border-radius: map-get($cathode-sizeData, 'radius');
+      font-size: map-get($cathode-sizeData, 'fontSize');
+      line-height: map-get($cathode-sizeData, 'lineHeight');
+      padding: map-get($cathode-sizeData, 'paddingV') map-get($cathode-sizeData, 'paddingH');
+
+      &.button-wide {
+        padding: map-get($cathode-sizeData, 'paddingV') 2 * map-get($cathode-sizeData, 'paddingH');
+      }
+    }
+  }
+
+  &.button-block {
+    display: block;
+    width: 100%;
+  }
+
+  &.button[disabled] {
+    cursor: not-allowed;
+  }
+
+  .button-icon {
+    display: inline-block;
+    line-height: 0.8;
+    vertical-align: middle;
+
+    &:before {
+      display: inline-block;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.button-group {
+  .button:nth-child(n+2):nth-last-child(n+2) {
+    border-radius: 0;
+    margin-right: 1px;
+  }
+
+  .button:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-right: 1px;
+  }
+
+  .button:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

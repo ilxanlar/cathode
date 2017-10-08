@@ -1,0 +1,70 @@
+.alert-container {
+  background: #fff;
+  border: $cathode-alert-border;
+  border-radius: $cathode-base-radius;
+  margin-bottom: $cathode-space-md;
+  position: relative;
+
+  .alert {
+    font-size: $cathode-alert-font-size;
+    line-height: $cathode-alert-line-height;
+    padding: $cathode-alert-padding;
+  }
+
+  .alert-icon {
+    font-size: $cathode-alert-icon-size;
+    line-height: $cathode-alert-icon-size;
+    height: $cathode-alert-icon-size;
+    left: $cathode-alert-padding;
+    position: absolute;
+    top: $cathode-alert-padding;
+    width: $cathode-alert-icon-size;
+
+    .icon {
+      display: block;
+
+      &:before {
+        display: block;
+        line-height: $cathode-alert-icon-size;
+      }
+    }
+  }
+
+  .alert-content {
+    .alert-title {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .alert-description {
+      line-height: 1.4;
+    }
+
+    .alert-title + .alert-description {
+      margin-top: 5px;
+    }
+  }
+
+  .alert-icon + .alert-content {
+    margin-left: $cathode-alert-padding + ($cathode-alert-icon-size / 2);
+  }
+
+  .alert-close {
+    cursor: pointer;
+    display: block;
+    height: $cathode-alert-icon-size;
+    padding: 2 * $cathode-alert-icon-padding;
+    position: absolute;
+    right: $cathode-alert-padding;
+    top: $cathode-alert-padding;
+    width: $cathode-alert-icon-size;
+  }
+
+  @each $cathode-styleName, $cathode-styleData in $cathode-alert-styles {
+    &.style-#{$cathode-styleName} {
+      .alert-title, .alert-icon {
+        color: map-get($cathode-styleData, 'dark-color');
+      }
+    }
+  }
+}

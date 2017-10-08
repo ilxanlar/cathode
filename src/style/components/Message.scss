@@ -1,0 +1,16 @@
+#messages-container {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 300px;
+  z-index: 999;
+
+  .alert-container {
+    animation: $cathode-animation-message 0.2s;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}
