@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import Theme from '../Theme';
 import { overlay as propTypes } from '../../helpers/propTypes';
 import { offset } from '../../helpers/utils';
 
@@ -374,12 +375,14 @@ export default class Overlay extends React.Component {
           onClick={this.handleClickOverlay}
           innerRef={this.handleOverlayRef}
         >
-          {
-            ContentWrapper ?
-              <ContentWrapper {...contentWrapperProps} placement={placement} align={align}>
-                {content}
-              </ContentWrapper> : content
-          }
+          <Theme>
+            {
+              ContentWrapper ?
+                <ContentWrapper {...contentWrapperProps} placement={placement} align={align}>
+                  {content}
+                </ContentWrapper> : content
+            }
+          </Theme>
         </Container>
       );
 

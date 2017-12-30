@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Container from '../Layout/Container';
+import Theme from '../Theme';
 import $ from '../../helpers/mQuery';
 import mediaQuery from '../../config/mediaQuery';
 
@@ -128,17 +129,19 @@ class ModalRaw extends React.Component {
 
     if (show) {
       return ReactDOM.createPortal(
-        <div className={className}>
-          <Backdrop onClick={this.handleClickBackdrop}>
-            <ContentWrapper>
-              <Content>
-                <Container {...containerProps} onClick={this.handleClickContent}>
-                  {children}
-                </Container>
-              </Content>
-            </ContentWrapper>
-          </Backdrop>
-        </div>,
+        <Theme>
+          <div className={className}>
+            <Backdrop onClick={this.handleClickBackdrop}>
+              <ContentWrapper>
+                <Content>
+                  <Container {...containerProps} onClick={this.handleClickContent}>
+                    {children}
+                  </Container>
+                </Content>
+              </ContentWrapper>
+            </Backdrop>
+          </div>
+        </Theme>,
         this.target
       );
     }
