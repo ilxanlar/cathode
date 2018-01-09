@@ -182,7 +182,7 @@ class DropdownRaw extends React.Component {
 
 const Dropdown = styled(DropdownRaw)`
   ${BaseDropdown.Item} {
-    ${props => props.loading ? `opacity: ${props.common.opacityLoading};` : undefined}
+    ${props => props.loading ? `opacity: ${props.theme.common.opacityLoading};` : undefined}
   }
 `;
 

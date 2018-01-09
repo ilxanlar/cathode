@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Field from '../Field';
-import PropProvider from '../FieldPropProvider';
 import Crust from './Input';
 import Dropdown from './Dropdown';
 import Overlay from '../../Overlay/Overlay';
 import Icon from '../../Icon/Icon';
+import Field from '../Field';
+import PropProvider from '../FieldPropProvider';
 import { formFieldPropTypes, selectableFieldPropTypes } from '../../../helpers/propTypes';
 import { selectableHelper } from '../../../helpers/utils';
-import variables from '../../../config/variables';
-
-const { icons } = variables;
 
 class FancySelectRaw extends React.Component {
   state = {
+    selectedValues: undefined,
+    selectedLabels: undefined,
+    selectedOptions: [],
     showDropdown: false,
     search: {
       focus: false,
@@ -24,6 +24,36 @@ class FancySelectRaw extends React.Component {
   ignoreClickOutside = false;
   searchInput = undefined;
   typeTimeout = undefined;
+
+  componentWillMount() {
+    const { input } = this.props;
+
+    if (input) {
+      this.setState({ selectedOptions: input.value });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { selectedOptions } = this.state;
+    const { input, multi, optionValue } = nextProps;
+
+    if (input) {
+      if (multi) {
+        const previousOptions = selectedOptions instanceof Array ? selectedOptions : [];
+        const nextOptions = input.value instanceof Array ? input.value : [];
+        const aHasB = previousOptions.every(oldOpt => nextOptions.some(newOpt => selectableHelper.value(newOpt, optionValue) === selectableHelper.value(oldOpt, optionValue)));
+        const bHasA = nextOptions.every(newOpt => previousOptions.some(oldOpt => selectableHelper.value(oldOpt, optionValue) === selectableHelper.value(newOpt, optionValue)));
+
+        if (!aHasB || !bHasA) {
+          this.setState({ selectedOptions: nextOptions });
+        }
+      } else {
+        if (selectableHelper.value(selectedOptions, optionValue) !== selectableHelper.value(input.value, optionValue)) {
+          this.setState({ selectedOptions: input.value });
+        }
+      }
+    }
+  }
 
   defaultFilterFunction = (option, search) => {
     return selectableHelper.label(option, this.props.optionLabel).toLowerCase().indexOf(search.toLowerCase()) > -1;
@@ -50,7 +80,9 @@ class FancySelectRaw extends React.Component {
     }
   };
 
-  handleSearchBlur = () => {
+  handleSearchBlur = (event) => {
+    event.stopPropagation();
+
     this.setState({
       search: {
         ...this.state.search,
@@ -60,7 +92,12 @@ class FancySelectRaw extends React.Component {
   };
 
   handleSearchChange = (event) => {
-    const value = event.target.value;
+    event.stopPropagation();
+    let value = event.target.value;
+
+    if (this.props.filterSearchInput) {
+      value = this.props.filterSearchInput(value);
+    }
 
     let newState = {
       search: {
@@ -129,53 +166,59 @@ class FancySelectRaw extends React.Component {
   };
 
   handleClickOption = (option) => {
+    const { selectedOptions } = this.state;
     const { input, multi, optionValue } = this.props;
+    let nextState = {};
+    let nextOptions;
 
-    if (input && input.onChange) {
-      let value;
-      const clickedValue = selectableHelper.value(option, optionValue);
-
-      if (multi) {
-        const previousValue = input.value || [];
-        value = [...previousValue, clickedValue];
-      } else {
-        value = clickedValue;
-      }
-
-      input.onChange(value);
+    if (multi) {
+      const previousOptions = selectedOptions || [];
+      nextOptions = [
+        ...previousOptions.filter(opt => selectableHelper.value(opt, optionValue) !== selectableHelper.value(option, optionValue)),
+        option
+      ];
+    } else {
+      nextOptions = option;
     }
+
+    nextState.selectedOptions = nextOptions;
 
     if (multi) {
       if (this.searchInput) {
         this.searchInput.focus();
 
-        this.setState({
-          search: {
-            ...this.state.search,
-            value: ''
-          }
-        });
-      }
-    } else {
-      this.setState({
-        showDropdown: false,
-        search: {
+        nextState.search = {
           ...this.state.search,
           value: ''
-        }
-      });
+        };
+      }
+    } else {
+      nextState.showDropdown = false;
+      nextState.search = {
+        ...this.state.search,
+        value: ''
+      }
     }
+
+    this.setState(nextState, () => {
+      if (input && input.onChange) {
+        input.onChange(nextState.selectedOptions);
+      }
+    });
 
     this.ignoreClickOutside = false;
   };
 
   handleRemoveOption = (option) => {
+    const { selectedOptions } = this.state;
     const { input, optionValue } = this.props;
 
     if (input && input.onChange) {
-      const previousValue = input.value instanceof Array ? input.value : [];
-      const value = previousValue.filter(optValue => optValue !== selectableHelper.value(option, optionValue));
-      input.onChange(value);
+      const previousOptions = selectedOptions instanceof Array ? selectedOptions : [];
+      const nextOptions = previousOptions.filter(opt => selectableHelper.value(opt, optionValue) !== selectableHelper.value(option, optionValue));
+      this.setState({ selectedOptions: nextOptions }, () => {
+        input.onChange(nextOptions);
+      });
     }
   };
 
@@ -183,25 +226,23 @@ class FancySelectRaw extends React.Component {
     const { multi, input, optionValue } = this.props;
 
     if (input) {
-      let previousValue = [];
+      let previousOptions = [];
 
       if (multi) {
-        previousValue = input.value instanceof Array ? input.value : [];
+        previousOptions = input.value instanceof Array ? input.value : [];
       } else if (typeof input.value !== 'undefined') {
-        previousValue = [input.value];
+        previousOptions = [input.value];
       }
 
-      return previousValue.includes(selectableHelper.value(option, optionValue));
+      return previousOptions.some(opt => selectableHelper.value(opt, optionValue) === selectableHelper.value(option, optionValue));
     }
 
     return false;
   };
 
   renderCrustSingle = (inputProps) => {
-    const { search, showDropdown } = this.state;
-    const { input, options, optionLabel, optionValue, placeholder, searchable, size } = this.props;
-    const value = input ? input.value : undefined;
-    const option = options.find(opt => selectableHelper.value(opt, optionValue) === value);
+    const { search, selectedOptions: option, showDropdown } = this.state;
+    const { optionLabel, placeholder, searchable, size } = this.props;
 
     let content;
     if (searchable) {
@@ -243,32 +284,24 @@ class FancySelectRaw extends React.Component {
   };
 
   renderCrustMulti = (inputProps) => {
-    const { search: searchInput, showDropdown } = this.state;
-    const { input, options, optionLabel, optionValue, placeholder, searchable, size } = this.props;
-    const value = input && input.value instanceof Array ? input.value : [];
+    const { search: searchInput, selectedOptions, showDropdown } = this.state;
+    const { optionLabel, placeholder, searchable, size } = this.props;
 
     return (
       <Crust {...inputProps} isFocused={showDropdown} onClick={this.handleClickMultiCrust} multi>
         <Crust.MultiItems>
           {
-            value.map((optValue, key) => {
-              const opt = options.find(fOpt => optValue === selectableHelper.value(fOpt, optionValue));
-
-              if (opt) {
-                return (
-                  <Crust.MultiItem
-                    key={key}
-                    onRemove={this.handleRemoveOption.bind(this, opt)}
-                    size={size}
-                    isLast={key === value.length - 1}
-                  >
-                    {selectableHelper.label(opt, optionLabel)}
-                  </Crust.MultiItem>
-                );
-              }
-
-              return null;
-            })
+            selectedOptions ?
+              selectedOptions.map((opt, key) => (
+                <Crust.MultiItem
+                  key={key}
+                  onRemove={this.handleRemoveOption.bind(this, opt)}
+                  size={size}
+                  isLast={key === selectedOptions.length - 1}
+                >
+                  {selectableHelper.label(opt, optionLabel)}
+                </Crust.MultiItem>
+              )) : null
           }
 
           {
@@ -291,7 +324,7 @@ class FancySelectRaw extends React.Component {
   };
 
   render() {
-    const { search, showDropdown } = this.state;
+    const { search, selectedOptions, showDropdown } = this.state;
     const { disabled, filterFunction, hasError, hasWarning, input, loading, multi, onSearch, options, optionDisabled, optionLabel, optionValue, renderLoading, renderNoOptions, size } = this.props;
     const inputProps = {
       ...input,
@@ -310,11 +343,12 @@ class FancySelectRaw extends React.Component {
     }
 
     if (multi) {
-      previousValue = input.value instanceof Array ? input.value : [];
-      filteredOptions = filteredOptions.filter(opt => !previousValue.includes(selectableHelper.value(opt, optionValue)));
-    }
+      previousValue = selectedOptions;
 
-    // const hasEnabledOption = !!filteredOptions.find(opt => !optionDisabled(opt));
+      if (previousValue instanceof Array && previousValue.length) {
+        filteredOptions = filteredOptions.filter(opt => !previousValue.some(opt2 => selectableHelper.value(opt2, optionValue) === selectableHelper.value(opt, optionValue)));
+      }
+    }
 
     let dropdownProps = {
       options: filteredOptions,
@@ -349,6 +383,7 @@ class FancySelectRaw extends React.Component {
           content={dropdown}
           contentWidth="parent"
           placement="bottom"
+          fallbackPlacement="top"
           trigger={showDropdown}
         >
           {multi ? this.renderCrustMulti(inputProps) : this.renderCrustSingle(inputProps)}
@@ -358,12 +393,13 @@ class FancySelectRaw extends React.Component {
   };
 }
 
-const FancySelect = PropProvider.withComponent(FancySelectRaw);
+export const FancySelect = PropProvider.withComponent(FancySelectRaw);
 
 FancySelect.propTypes = {
   ...formFieldPropTypes,
   ...selectableFieldPropTypes,
   filterFunction: PropTypes.func,
+  filterSearchInput: PropTypes.func,
   loading: PropTypes.bool,
   renderLoading: PropTypes.node,
   multi: PropTypes.bool,
@@ -373,8 +409,9 @@ FancySelect.propTypes = {
 };
 
 FancySelect.defaultProps = {
-  renderLoading: 'Please wait...',
-  renderNoOptions: 'Nothing found...',
+  options: [],
+  renderLoading: 'لطفا صبر کنید...',
+  renderNoOptions: 'موردی یافت نشد',
   size: 'md',
   searchable: true,
   searchTimeout: 300
