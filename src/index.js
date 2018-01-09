@@ -15,7 +15,7 @@ export Tabs from './components/Tabs/Tabs';
 export Container from './components/Layout/Container';
 export Grid, { Row, Column } from './components/Layout/Grid';
 
-export Modal from './components/Overlay/Modal';
+export Modal from './components/Modal/Modal';
 export Overlay from './components/Overlay/Overlay';
 export Popover from './components/Overlay/Popover';
 export Tooltip from './components/Overlay/Tooltip';
