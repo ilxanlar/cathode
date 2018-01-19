@@ -1,0 +1,31 @@
+{
+  "name": "cathode-demo",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^2.5.0",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-syntax-highlighter": "^6.0.4",
+    "redux": "^3.7.2",
+    "styled-components": "^2.2.0"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.js --watch",
+    "build": "./node_modules/.bin/webpack-dev-server --config ./webpack.js -p"
+  }
+}
