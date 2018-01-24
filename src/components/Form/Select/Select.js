@@ -22,6 +22,7 @@ class SelectRaw extends React.Component {
       disabled,
       onChange: this.handleChange,
       placeholder,
+      required: false,
       value
     };
 

@@ -42,6 +42,7 @@ class TextRaw extends React.Component {
       hasWarning,
       onChange: this.handleChange,
       placeholder,
+      required: false,
       size,
       value
     };
