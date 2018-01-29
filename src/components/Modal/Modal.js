@@ -41,14 +41,17 @@ const ContentWrapper = styled.div`
 `;
 
 class ModalRaw extends React.Component {
+  __mounted = false;
   target = undefined;
   contentClicked = false;
 
   componentDidMount() {
+    this.__mounted = true;
     window.addEventListener('keydown', this.handleKeyDown);
 
     if (this.props.show) {
       this.createContainer();
+      this.forceUpdate();
     }
   }
 
@@ -65,6 +68,7 @@ class ModalRaw extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeyDown);
     this.removeContainer();
+    this.__mounted = false;
   }
 
   handleClickBackdrop = () => {
@@ -127,7 +131,7 @@ class ModalRaw extends React.Component {
   render() {
     const { children, className, containerProps, show } = this.props;
 
-    if (show) {
+    if (this.__mounted && show) {
       return ReactDOM.createPortal(
         <Theme>
           <div className={className}>
