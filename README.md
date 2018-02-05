@@ -2,7 +2,7 @@
 
 To start, do something like this:
 
-```
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { GlobalStyle, Theme } from 'cathode';
@@ -47,7 +47,7 @@ In some components you can address a specific screen size when passing props. Le
 | `gutterXxl="xl"` | `xxl` | `xl`
 
 And in action:
-```
+```javascript
 <Grid.Row gutterXxs="none" gutterLg="xs" gutterXxl="xl">
   ...
 </Grid.Row>
@@ -76,7 +76,7 @@ Available media query shortcuts:
 ## Customization
 
 All the exported components are `styled-components`! So to override the styles, you treat them as any normal styled component. For example, you can extend them:
-```
+```javascript
 import React from 'react';
 import { Button as BaseButton } from 'cathode';
 
@@ -116,7 +116,7 @@ Use this component to wrap the message title.
 Use this component to wrap the message body.
 
 ### Example Usage
-```
+```javascript
 import React from 'react';
 import { Icon, Message } from 'cathode';
 
