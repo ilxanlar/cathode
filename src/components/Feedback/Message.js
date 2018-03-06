@@ -1,9 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import Icon from '../Icon/Icon';
-import { getScreenProp, hasScreenProp } from '../../helpers/utils';
 import { message as propTypes } from '../../helpers/propTypes';
-import mediaQuery from '../../config/mediaQuery';
+
+const IconWrapper = styled.span`
+  ${Icon} {
+    font-size: 150%;
+    line-height: 1;
+  }
+`;
 
 const Description = styled.div`
   line-height: 20px;
@@ -22,6 +27,8 @@ const Title = styled.div`
 
 const Content = styled.div`
   flex-grow: 1;
+  margin-left: ${props => props.theme.message.padding}px;
+  margin-right: ${props => props.theme.message.padding}px;
 `;
 
 const Close = styled.a`
@@ -39,6 +46,8 @@ const Close = styled.a`
     color: rgba(0, 0, 0, 0.7);
   }
 `;
+
+const CloseWrapper = styled.span``;
 
 class MessageRaw extends React.Component {
   state = {
@@ -87,15 +96,20 @@ class MessageRaw extends React.Component {
 
     return (
       <div className={className}>
-        {icon ? iconTag : null}
+        {
+          icon ?
+            <IconWrapper>
+              {iconTag}
+            </IconWrapper> : null
+        }
 
         <Content children={children} />
 
         {
           closable && (
-            <span>
+            <CloseWrapper>
               <Close onClick={this.handleClose}>×</Close>
-            </span>
+            </CloseWrapper>
           )
         }
       </div>
@@ -103,44 +117,16 @@ class MessageRaw extends React.Component {
   }
 }
 
-const messageCss = ({ borderColor, borderWidth, mood, moodyBg, theme }) => css`
+const messageCss = ({ mood, moodyBg, theme }) => css`
   background-color: ${moodyBg ? theme.moods[mood].light : theme.colors.white};
-  border: 1px solid ${moodyBg ? 'transparent' : theme.colors.lightB};
-  border-radius: 5px;
+  border: 2px solid ${moodyBg ? 'transparent' : theme.moods[mood].light};
+  border-radius: ${theme.common.radius}px;
+  padding: ${theme.message.padding}px;
   transition: ${theme.common.transitionAll};
 
   ${Icon}, ${Title} {
     color: ${theme.moods[mood].original};
   }
-
-  ${Icon} {
-    font-size: 150%;
-    line-height: 1;
-    margin-top: -2px;
-  }
-`;
-
-const messagePaddingCss = screenName => props => {
-  if (hasScreenProp(screenName, 'padding', props)) {
-    const paddingSize = getScreenProp(screenName, 'padding', props);
-    const padding = props.theme.spaces[paddingSize];
-
-    return css`
-      padding: ${padding}px;
-
-      ${Content} {
-        margin-left: ${padding}px;
-        margin-right: ${padding}px;
-      }
-    `;
-  }
-};
-
-const messageSideBordersCss = ({ mood, sideBordersWidth, theme }) => css`
-  border-left-color: ${theme.moods[mood].original};
-  border-left-width: ${sideBordersWidth}px;
-  border-right-color: ${theme.moods[mood].original};
-  border-right-width: ${sideBordersWidth}px;
 `;
 
 const Message = styled(MessageRaw)`
@@ -148,14 +134,6 @@ const Message = styled(MessageRaw)`
   flex-direction: row;
   position: relative;
   ${messageCss}
-  ${mediaQuery.xxs`${messagePaddingCss('xxs')}`}
-  ${mediaQuery.xs`${messagePaddingCss('xs')}`}
-  ${mediaQuery.sm`${messagePaddingCss('sm')}`}
-  ${mediaQuery.md`${messagePaddingCss('md')}`}
-  ${mediaQuery.lg`${messagePaddingCss('lg')}`}
-  ${mediaQuery.xl`${messagePaddingCss('xl')}`}
-  ${mediaQuery.xxl`${messagePaddingCss('xxl')}`}
-  ${props => props.sideBorders ? messageSideBordersCss(props) : undefined}
 `;
 
 Message.propTypes = propTypes;
@@ -163,11 +141,8 @@ Message.propTypes = propTypes;
 Message.defaultProps = {
   mood: 'info',
   moodyBg: false,
-  sideBorders: false,
-  sideBordersWidth: 5,
   icon: true,
-  closable: false,
-  paddingXxs: 'md'
+  closable: false
 };
 
 Message.Icon = Icon;

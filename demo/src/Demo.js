@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, GlobalStyle, Theme } from '../../src';
 import Message from './containers/Message';
 import Button from './containers/Button';
+import ButtonGroup from './containers/ButtonGroup';
 import Card from './containers/Card';
 import Dropdown from './containers/Dropdown';
 import Form from './containers/Form';

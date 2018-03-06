@@ -12,13 +12,21 @@ variables.common.fontPrimary = 'Arial';
 
 const Wrapper = styled.div`
   margin-left: 180px;
+  max-width: 1100px;
   padding: 50px;
 
   h1 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 400;
-    margin: 0 0 50px 0;
-    padding: 0;
+    margin: 0 0 2em;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin: 2em 0 1em;
+  }
+
+  h1, h2 {
+    text-transform: uppercase;
   }
 `;
 
@@ -32,7 +40,7 @@ const App = () => (
       <Wrapper>
         <Switch>
           <Route exact path="/button" component={containers.Button} />
-          <Route exact path="/button-group" component={containers.Button} />
+          <Route exact path="/button-group" component={containers.ButtonGroup} />
           <Route exact path="/dropdown" component={containers.Dropdown} />
           <Route exact path="/grid" component={containers.Grid} />
           <Route exact path="/message" component={containers.Message} />

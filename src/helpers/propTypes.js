@@ -9,8 +9,6 @@ export const sizeKeys = Object.keys(gutters);
 export const message = {
   mood: PropTypes.oneOf(['info', 'success', 'error', 'warning']),
   moodyBg: PropTypes.bool,
-  sideBorders: PropTypes.bool,
-  sideBordersWidth: PropTypes.number,
   icon: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
@@ -18,14 +16,7 @@ export const message = {
   ]),
   closable: PropTypes.bool,
   autoCloseAfter: PropTypes.number,
-  onClose: PropTypes.func,
-  paddingXxs: PropTypes.oneOf(sizeKeys),
-  paddingXs: PropTypes.oneOf(sizeKeys),
-  paddingSm: PropTypes.oneOf(sizeKeys),
-  paddingMd: PropTypes.oneOf(sizeKeys),
-  paddingLg: PropTypes.oneOf(sizeKeys),
-  paddingXl: PropTypes.oneOf(sizeKeys),
-  paddingXxl: PropTypes.oneOf(sizeKeys)
+  onClose: PropTypes.func
 };
 
 export const button = {
@@ -36,6 +27,7 @@ export const button = {
   ghost: PropTypes.bool,
   wide: PropTypes.bool,
   block: PropTypes.bool,
+  disabled: PropTypes.bool,
   disableHoverStyles: PropTypes.bool,
   disablePressStyles: PropTypes.bool,
   loading: PropTypes.bool
@@ -70,18 +62,6 @@ export const container = {
   skipLg: PropTypes.bool,
   skipXl: PropTypes.bool,
   skipXxl: PropTypes.bool
-};
-
-export const dropdown = {
-  buttonProps: PropTypes.shape(button),
-  label: PropTypes.node.isRequired,
-  noCaret: PropTypes.bool,
-  overlayProps: PropTypes.object
-};
-
-export const dropdownItem = {
-  active: PropTypes.bool,
-  disabled: PropTypes.bool
 };
 
 export const icon = {
@@ -168,6 +148,18 @@ export const overlay = {
 
 export const popover = {
   ...overlay
+};
+
+export const dropdown = {
+  buttonProps: PropTypes.shape(button),
+  label: PropTypes.node.isRequired,
+  noCaret: PropTypes.bool,
+  overlayProps: PropTypes.shape(overlay)
+};
+
+export const dropdownItem = {
+  active: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export const field = {

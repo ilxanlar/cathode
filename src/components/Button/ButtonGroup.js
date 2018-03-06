@@ -6,7 +6,7 @@ const ButtonGroup = styled.div`
   overflow: auto;
   white-space: nowrap;
 
-  ${Button} {
+  > * {
     margin-${props => props.theme.isRTL ? 'left' : 'right'}: ${props => props.theme.buttonGroup.margin}px;
 
     &:last-child {

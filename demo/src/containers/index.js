@@ -1,5 +1,5 @@
 import Button from './Button';
-import ButtonGroup from './Button';
+import ButtonGroup from './ButtonGroup';
 import Dropdown from './Dropdown';
 import Grid from './Grid';
 import Message from './Message';

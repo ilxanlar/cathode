@@ -1,6 +1,6 @@
 import { keyframes as createKeyframe } from 'styled-components';
 
-let variables = {
+let theme = {
   colors: {
     white: '#fff',
     lightA: '#d5d5d5',
@@ -135,196 +135,197 @@ let variables = {
   isRTL: false
 };
 
-variables.common = {
-  fontSize: variables.fontSizes.md,
-  fontPrimary: variables.fonts.primary,
-  fontSecondary: variables.fonts.secondary,
-  fontWeight: variables.fontWeights.normal,
+theme.common = {
+  fontSize: theme.fontSizes.md,
+  fontPrimary: theme.fonts.primary,
+  fontSecondary: theme.fonts.secondary,
+  fontWeight: theme.fontWeights.normal,
   lineHeight: 1.75,
   opacityLoading: 0.7,
   opacityDisabled: 0.5,
   filterDisabled: 'grayscale(0.75)',
-  radius: 3,
+  radius: 2,
   shadow: '0 0 10px rgba(0, 0, 0, 0.08)',
   transitionAll: `all 0.15s ease-in`
 };
 
-variables.moods = {
+theme.moods = {
   primary: {
-    original: variables.colors.primary,
-    light: variables.colors.primaryLight,
-    buttonBgColor: variables.colors.primary,
+    original: theme.colors.primary,
+    light: theme.colors.primaryLight,
+    buttonBgColor: theme.colors.primary,
     buttonBgColorHovered: '#35c8f5',
     buttonBgColorPressed: '#009dcd',
     buttonBgColorDisabled: '#caf0fc',
-    buttonTextColor: variables.colors.white,
-    buttonTextColorGhost: variables.colors.primary,
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColor: theme.colors.white,
+    buttonTextColorGhost: theme.colors.primary,
+    buttonTextColorDisabled: theme.colors.white
   },
 
   secondary: {
-    original: variables.colors.secondary,
-    light: variables.colors.secondaryLight,
-    buttonBgColor: variables.colors.secondary,
+    original: theme.colors.secondary,
+    light: theme.colors.secondaryLight,
+    buttonBgColor: theme.colors.secondary,
     buttonBgColorHovered: '#e8f8ff',
     buttonBgColorPressed: '#8bdbff',
     buttonBgColorDisabled: '#d9f3ff',
     buttonTextColor: '#1caff6',
     buttonTextColorGhost: '#1caff6',
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColorDisabled: theme.colors.white
   },
 
   tertiary: {
-    original: variables.colors.tertiary,
-    light: variables.colors.tertiaryLight,
-    buttonBgColor: variables.colors.tertiary,
+    original: theme.colors.tertiary,
+    light: theme.colors.tertiaryLight,
+    buttonBgColor: theme.colors.tertiary,
     buttonBgColorHovered: '#f1f3f9',
     buttonBgColorPressed: '#c1c6d6',
     buttonBgColorDisabled: '#e1e3ea',
     buttonTextColor: '#748494',
     buttonTextColorGhost: '#748494',
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColorDisabled: theme.colors.white
   },
 
   info: {
-    original: variables.colors.info,
-    light: variables.colors.infoLight,
-    buttonBgColor: variables.colors.info,
+    original: theme.colors.info,
+    light: theme.colors.infoLight,
+    buttonBgColor: theme.colors.info,
     buttonBgColorHovered: '#61a1eb',
     buttonBgColorPressed: '#3f7dc5',
     buttonBgColorDisabled: '#adcaec',
-    buttonTextColor: variables.colors.white,
-    buttonTextColorGhost: variables.colors.info,
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColor: theme.colors.white,
+    buttonTextColorGhost: theme.colors.info,
+    buttonTextColorDisabled: theme.colors.white
   },
 
   success: {
-    original: variables.colors.success,
-    light: variables.colors.successLight,
-    buttonBgColor: variables.colors.success,
+    original: theme.colors.success,
+    light: theme.colors.successLight,
+    buttonBgColor: theme.colors.success,
     buttonBgColorHovered: '#69f1d3',
     buttonBgColorPressed: '#40bfa2',
     buttonBgColorDisabled: '#bcf1e5',
-    buttonTextColor: variables.colors.white,
-    buttonTextColorGhost: variables.colors.success,
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColor: theme.colors.white,
+    buttonTextColorGhost: theme.colors.success,
+    buttonTextColorDisabled: theme.colors.white
   },
 
   error: {
-    original: variables.colors.error,
-    light: variables.colors.errorLight,
-    buttonBgColor: variables.colors.error,
+    original: theme.colors.error,
+    light: theme.colors.errorLight,
+    buttonBgColor: theme.colors.error,
     buttonBgColorHovered: '#ff8ba1',
     buttonBgColorPressed: '#df3f5e',
     buttonBgColorDisabled: '#ffd0d9',
-    buttonTextColor: variables.colors.white,
-    buttonTextColorGhost: variables.colors.error,
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColor: theme.colors.white,
+    buttonTextColorGhost: theme.colors.error,
+    buttonTextColorDisabled: theme.colors.white
   },
 
   warning: {
-    original: variables.colors.warning,
-    light: variables.colors.warningLight,
-    buttonBgColor: variables.colors.warning,
+    original: theme.colors.warning,
+    light: theme.colors.warningLight,
+    buttonBgColor: theme.colors.warning,
     buttonBgColorHovered: '#ffe662',
     buttonBgColorPressed: '#e7c200',
     buttonBgColorDisabled: '#feed93',
-    buttonTextColor: variables.colors.white,
-    buttonTextColorGhost: variables.colors.warning,
-    buttonTextColorDisabled: variables.colors.white
+    buttonTextColor: theme.colors.white,
+    buttonTextColorGhost: theme.colors.warning,
+    buttonTextColorDisabled: theme.colors.white
   }
 };
 
-variables.message = {
+theme.message = {
   lineHeight: 1.5,
-  titleFontWeight: variables.fontWeights.medium
+  titleFontWeight: theme.fontWeights.medium,
+  padding: 20
 };
 
-variables.button = {
+theme.button = {
   size: {
     xxs: {
-      radius: 3,
-      fontSize: variables.fontSizes.xxs,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.xxs,
+      lineHeight: theme.common.lineHeight,
       paddingH: 6,
       paddingV: 2
     },
     xs: {
-      radius: 3,
-      fontSize: variables.fontSizes.xs,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.xs,
+      lineHeight: theme.common.lineHeight,
       paddingH: 8,
       paddingV: 4
     },
     sm: {
-      radius: 3,
-      fontSize: variables.fontSizes.sm,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.sm,
+      lineHeight: theme.common.lineHeight,
       paddingH: 12,
       paddingV: 6
     },
     md: {
-      radius: 3,
-      fontSize: variables.fontSizes.md,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.md,
+      lineHeight: theme.common.lineHeight,
       paddingH: 16,
       paddingV: 7
     },
     lg: {
-      radius: 3,
-      fontSize: variables.fontSizes.lg,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.lg,
+      lineHeight: theme.common.lineHeight,
       paddingH: 16,
       paddingV: 8
     },
     xl: {
-      radius: 5,
-      fontSize: variables.fontSizes.xl,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.xl,
+      lineHeight: theme.common.lineHeight,
       paddingH: 20,
       paddingV: 10
     },
     xxl: {
-      radius: 5,
-      fontSize: variables.fontSizes.xxl,
-      lineHeight: variables.common.lineHeight,
+      radius: 2,
+      fontSize: theme.fontSizes.xxl,
+      lineHeight: theme.common.lineHeight,
       paddingH: 24,
       paddingV: 12
     }
   },
-  fontWeight: variables.fontWeights.medium
+  fontWeight: theme.fontWeights.medium
 };
 
-variables.buttonGroup = {
+theme.buttonGroup = {
   margin: 1
 };
 
-variables.dropdown = {
+theme.dropdown = {
   minWidth: 150,
-  itemBgColorHover: variables.colors.lightC,
-  itemBgColorActive: variables.colors.primary,
-  itemTextColorActive: variables.colors.white,
+  itemBgColorHover: theme.colors.lightC,
+  itemBgColorActive: theme.colors.primary,
+  itemTextColorActive: theme.colors.white,
   itemPaddingH: 16,
   itemPaddingV: 5,
-  separatorColor: variables.colors.lightC
+  separatorColor: theme.colors.lightC
 };
 
-variables.field = {
-  labelFontWeight: variables.fontWeights.semiBold
+theme.field = {
+  labelFontWeight: theme.fontWeights.semiBold
 };
 
-variables.fieldBox = {
-  bgColorDisabled: variables.colors.lightB,
-  borderColor: variables.colors.lightA,
-  borderColorHovered: variables.colors.lightA,
-  borderColorFocused: variables.colors.primary,
-  placeholderColor: variables.colors.grayC
+theme.fieldBox = {
+  bgColorDisabled: theme.colors.lightB,
+  borderColor: theme.colors.lightA,
+  borderColorHovered: theme.colors.lightA,
+  borderColorFocused: theme.colors.primary,
+  placeholderColor: theme.colors.grayC
 };
 
-variables.fieldBoolean = {
-  borderColor: variables.colors.grayC,
-  borderColorHovered: variables.colors.grayB,
-  borderColorFocused: variables.colors.grayA,
+theme.fieldBoolean = {
+  borderColor: theme.colors.grayC,
+  borderColorHovered: theme.colors.grayB,
+  borderColorFocused: theme.colors.grayA,
   size: {
     xxs: {
       checkbox: {
@@ -332,7 +333,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 10
       },
       radio: {
@@ -356,7 +357,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 12
       },
       radio: {
@@ -380,7 +381,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 14
       },
       radio: {
@@ -404,7 +405,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 16
       },
       radio: {
@@ -428,7 +429,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 18
       },
       radio: {
@@ -452,7 +453,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 20
       },
       radio: {
@@ -476,7 +477,7 @@ variables.fieldBoolean = {
         borderWidthOn: 1,
         checkBorderWidth: 2,
         checkSize: 8,
-        radius: 3,
+        radius: 2,
         size: 22
       },
       radio: {
@@ -497,22 +498,22 @@ variables.fieldBoolean = {
   }
 };
 
-variables.grid = {
+theme.grid = {
   maxColumns: 24
 };
 
-variables.popover = {
+theme.popover = {
   lineHeight: 1.2,
-  margin: 10,
-  padding: variables.spaces.md,
-  arrowMarginInside: -2,
-  arrowMarginSide: -3,
-  arrowSize: 6
+  margin: 5,
+  padding: theme.spaces.md,
+  arrowMarginInside: -3,
+  arrowMarginSide: -4,
+  arrowSize: 8
 };
 
-variables.tooltip = {
-  fontSize: variables.fontSizes.sm,
+theme.tooltip = {
+  fontSize: theme.fontSizes.sm,
   padding: 5
 };
 
-export default variables;
+export default theme;
