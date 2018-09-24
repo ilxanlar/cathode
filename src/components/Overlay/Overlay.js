@@ -61,6 +61,7 @@ export default class Overlay extends React.PureComponent {
     this.nodeRef.removeEventListener('blur', this.handleOut);
     window.removeEventListener('resize', this.reposition);
     window.removeEventListener('scroll', this.reposition);
+    this.unrenderOverlay();
   }
 
   handleIn = (type) => {
